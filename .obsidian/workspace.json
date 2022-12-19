@@ -1,0 +1,111 @@
+{
+  "main": {
+    "id": "08e17fd2ab2c2727",
+    "type": "split",
+    "children": [
+      {
+        "id": "0f2cf6cc00c02872",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "30383cd68c349a1e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "KodeKloud/20221219 - Linux SSH Authentication.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1a8d6ac21c2bac74",
+    "type": "split",
+    "children": [
+      {
+        "id": "15fd8854dee9d7b6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ade185c4d7a39dc1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e0652dc213afdfb2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 297.5
+  },
+  "right": {
+    "id": "cb514284c4f744db",
+    "type": "split",
+    "children": [
+      {
+        "id": "c9bc70e19c7aaf1c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cefd304ceb1fda81",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "KodeKloud/20221219 - Linux SSH Authentication.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "30383cd68c349a1e",
+  "lastOpenFiles": [
+    "KodeKloud/C-20221214 -  Create a Linux User with non-interactive shell.md",
+    "KodeKloud/20221219 - Linux SSH Authentication.md",
+    "Linux/Commands in Class.md",
+    "Linux/aCloudGuru/Untitled 1.md",
+    "Linux/aCloudGuru/Learn Linux by Doing.md",
+    "KodeKloud/C-20221213 - Timezone miss match.md",
+    "KodeKloud/C-20221216 -  Linux File Permissions.md",
+    "CloudFormation/Cloudformation & SAM.md",
+    "Linux/Kubernetes.md",
+    "networking/Networking qs.md"
+  ]
+}

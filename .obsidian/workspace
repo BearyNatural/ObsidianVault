@@ -1,0 +1,103 @@
+{
+  "main": {
+    "id": "08e17fd2ab2c2727",
+    "type": "split",
+    "children": [
+      {
+        "id": "6f0031d93b9e66d4",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Linux/Commands in Class.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1a8d6ac21c2bac74",
+    "type": "split",
+    "children": [
+      {
+        "id": "15fd8854dee9d7b6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ade185c4d7a39dc1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "e0652dc213afdfb2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 131.5
+  },
+  "right": {
+    "id": "cb514284c4f744db",
+    "type": "split",
+    "children": [
+      {
+        "id": "c9bc70e19c7aaf1c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cefd304ceb1fda81",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Linux/Commands in Class.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "6f0031d93b9e66d4",
+  "lastOpenFiles": [
+    "Linux/Homework.md",
+    "Linux/Commands in Class.md",
+    "Linux/aCloudGuru/Untitled 1.md",
+    "Linux/Linux help.md",
+    "Linux/aCloudGuru/Learn Linux by Doing.md",
+    "A1 Q4.md",
+    "A1 Q6.md",
+    "A1 Q7.md",
+    "A1 Q5.md",
+    "A1 Q8.md"
+  ]
+}
