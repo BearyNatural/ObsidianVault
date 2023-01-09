@@ -83,6 +83,7 @@ chkconfig --list
 
 lscpu | grep -i svm 
 
+cp /home/BSD.txt > /home/BSD_DELETE.txt [copy command]
 
 2022-09-14
 rpm -qa | grep ssh
