@@ -14,3 +14,12 @@ ap-southeast-2
 
 
 Content of DNS Record is: {Name: _f3196250f80641d3937593c6da1dd3ef.daydreaminginthecloud.bearynatural.dev.,Type: CNAME,Value: _4bd0a7199308725cf341898aa8a400e6.pmgvbzmzyk.acm-validations.aws.}
+
+aws s3 cp W:\My Documents\AWS - Docs\Projects\WebsiteDocs\index.html s3://daydreaminginthecloud/
+W:\My Documents\AWS - Docs\Projects\WebsiteDocs
+
+
+Lazy:
+aws cloudformation validate-template --template-body file://S3_CloudFront.yaml 
+aws cloudformation deploy --stack-name project2 --region us-east-1 --template-file S3_CloudFront.yaml
+aws cloudformation delete-stack --stack-name project2 --region us-east-1
