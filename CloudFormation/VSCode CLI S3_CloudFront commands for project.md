@@ -23,3 +23,28 @@ Lazy:
 aws cloudformation validate-template --template-body file://S3_CloudFront.yaml 
 aws cloudformation deploy --stack-name project2 --region us-east-1 --template-file S3_CloudFront.yaml
 aws cloudformation delete-stack --stack-name project2 --region us-east-1
+
+20230118_6
+Incremental changes to view
+Changes listed:
+websiteCFD:
+- Aliases
+	- DomainName - added
+	- DomainNameJoin
+- CNAMEs
+	- DomainNameJoin
+
+issues still with ssl certificate error:
+AWS::CloudFront::Distribution: The specified SSL certificate doesn't exist, isn't in us-east-1 region, isn't valid, or doesn't include a valid certificate chain.
+hardcoded ssl certificate back in and validated it manually
+
+```
+18.       AliasTarget:
+19.         HostedZoneId: !GetAtt 'myELB.CanonicalHostedZoneNameID'
+20.         DNSName: !GetAtt 'myELB.DNSName'
+```
+Documentation found in aws docs github examples
+https://github.com/awsdocs/aws-cloudformation-user-guide/blob/main/doc_source/quickref-route53.md
+
+
+
