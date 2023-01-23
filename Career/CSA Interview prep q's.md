@@ -14,17 +14,66 @@ Networking:
 · Subnet mask - what is it?
 
 OS: 
-· OS boot process (Win/Linux) 
+· OS boot process (Linux) https://kumo-knowledge-ui-iad-prod.amazon.com/view/article_30921 https://www.geeksforgeeks.org/how-linux-kernel-boots/
+	- Bios/UEFI - Brain - low level software that initialises before the boot of os starts. i.e. motherboard [UEFI is used if adanced required for intel or amd]
+	- Memory level - MBR/GPT - master boot record/guid partition table; GPT is more versatile as you can have more than 4 partitions on each dish & on disks greater than 2 terabytes;
+	- Grub - loads linux kernel and configuration files
+	- Kernel - executes /sbin/init Kernel Initialization and Boot Options:
+			1.  CPU examination
+			2.  Memory examination
+			3.  Device bus discovery
+			4.  Device discovery
+			5.  Auxiliary kernel system setup
+			6.  Root filesystem mount
+			7.  Userspace begin
+	- Init - 
+	- Runlevel - 7 run levels 0 - 7 
+		- 0 – System halt _i.e_ the system can be safely powered off with no activity.
+		-   1 – Single user mode.
+		-   2 – Multiple user mode with no NFS(network file system).
+		-   3 – Multiple user mode under the command line interface and not under the graphical user interface.
+		-   4 – User-definable.
+		-   5 – Multiple user mode under GUI (graphical user interface) and this is the standard runlevel for most of the LINUX based systems.
+		-   6 – Reboot which is used to restart the system.
 · Memory management; Memory pages; Buffer and Caches, Basic commands 
 · System date/time management, network time protocol 
 · Managing Users and groups 
-· File permissions 
+· File permissions RWX
 · Managing software’s - installation, uninstallation, upgrade etc. 
 · Managing system services and background processes 
 · Remote management of a system - SSH, RDP etc. 
 · Network protocols - FTP, HTTP (web servers), SMTP (mail server) 
 · System automation - cron, batch jobs, windows startup tasks 
 · Linux commands - 20 common commands
+	- ls or ll - list files and directories in a directory (ll is short version)
+	- cd - change directory, used to move around directories
+	- cp - copy the source
+	- mv - move the source
+	- rm - remove or delete
+	- mkdir - make or create directory
+	- rmdir - remove or delete directory
+	- chown - change ownership
+	- chmod - change permissions for files and folders that already exist!
+		- parameters - owner, group & others
+		- Set the default permission of file to 622 (666-622=044) and directory to 733 (777-733=044)
+	- umask - changes the default permissions and thus the permissions for all newly created files and folders
+		- octal version inverted chmod
+	- date - 
+	- tar - compression
+	- cat - display contents of file
+	- less
+	- du - disk usage
+	- df
+	- editor commands i.e. vi, vim, nano etc
+	- Manipulating text 
+		- grep - search
+	- File utilities
+		- locate/find - find files, directories, etc
+· Linux package management 3 different types:
+	- Debian/Ubuntu
+	- Red Hat/Fedora/Centos
+	- OpenSuse/suse
+	- ![[Pasted image 20230123131532.png]]
 
 Troubleshooting: 
 · System performance - CPU, DISK, memory and network 
