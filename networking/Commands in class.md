@@ -34,7 +34,7 @@ traceroute google.com
 traceroute -A [pip] (show the path lookups in routing registries and print results directly after the corresponding addresses)
 
 whois AS16509 [https://lg.he.net/ or https://wq.apnic.net/]
-
+[good if you want the name servers - whois]
 netstat
 nslookup
 

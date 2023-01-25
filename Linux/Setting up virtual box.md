@@ -1,0 +1,15 @@
+
+- sudo priviledge:
+	- sudo su
+- Update/upgrade:
+	- sudo apt update -y
+	- sudo apt upgrade -y
+- vim as editor:
+	- sudo apt install -y vim
+- openssh-server
+	- sudo apt list --installed | grep openssh-server
+	- sudo apt install -y openssh-server
+- vncviewer
+	- sudo apt install -y tigervnc*
+- netstat:
+	- sudo apt install -y net-tools

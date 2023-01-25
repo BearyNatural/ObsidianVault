@@ -157,7 +157,7 @@ Q ASKED IN INTERVIEW - WHAT IS THE RUNLEVEL
 5. GUI
 6. REBOOT
 
-./sshd help
+./sshd help - https://linuxhint.com/fix_connection_refused_ubuntu/ connection refused by port 22
 cd ../rc3.d
 sshd
 sshd -l
