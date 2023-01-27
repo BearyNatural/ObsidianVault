@@ -47,6 +47,12 @@ OS:
 · Linux commands - 20 common commands **cat**, **chgrp**, **chmod**, **chown**, **cp**, **date**, **dd**, **df**, **dmesg**, **echo**, **false**, **hostname**, **kill**, **ln**, **login**, **ls**, **mkdir**, **mknod**, **more**, **mount**, **mv**, **ps**, **pwd**, **rm**, **rmdir**, **sed**, **sh**, **stty**, **su**, **sync**, **true**, **umount** and **uname**
 	- ls or ll - list files and directories in a directory (ll is short version)
 	- cd - change directory, used to move around directories
+	- uname - system information (-a) for all info 
+	- apt (dpkg for lower level) - package management system
+		- dpkg -S [package name i.e. logrotate] find out what package the file belongs to
+		- dpkg - L [package name] list info about the package
+		- dpkg -V [package name] verify the package installation
+		- sudo dpkg -r [package name] to remove the package
 	- cp - copy the source
 	- mv - move the source
 	- rm - remove or delete

@@ -6,6 +6,8 @@
 	- sudo apt upgrade -y
 - vim as editor:
 	- sudo apt install -y vim
+	- export $EDITOR=vi
+	- echo $EDITOR
 - openssh-server
 	- sudo apt list --installed | grep openssh-server
 	- sudo apt install -y openssh-server

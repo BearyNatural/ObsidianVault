@@ -5,7 +5,7 @@ Update the `message of the day` on all application and db servers for `Nautilus`
 https://medium.com/@keshavsaxena/update-banner-in-linux-servers-3d6832f95f44
 https://www.cybrosys.com/blog/copying-multiple-files-simultaneously-using-scp
 
-%% stapp 01 %%
+%% stapp 03 %%
 ll /home/thor/nautilus_banner
 cat /home/thor/nautilus_banner
 scp /home/thor/nautilus_banner banner@stapp03:/tmp
