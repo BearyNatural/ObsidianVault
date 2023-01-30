@@ -45,10 +45,17 @@ OS:
 · Network protocols - FTP, HTTP (web servers), SMTP (mail server) 
 · System automation - cron, batch jobs, windows startup tasks 
 · Linux commands - 20 common commands **cat**, **chgrp**, **chmod**, **chown**, **cp**, **date**, **dd**, **df**, **dmesg**, **echo**, **false**, **hostname**, **kill**, **ln**, **login**, **ls**, **mkdir**, **mknod**, **more**, **mount**, **mv**, **ps**, **pwd**, **rm**, **rmdir**, **sed**, **sh**, **stty**, **su**, **sync**, **true**, **umount** and **uname**
-	- ls or ll - list files and directories in a directory (ll is short version)
+	- ls or ll - list files and directories in a directory (ll is short version if aliased)
 	- cd - change directory, used to move around directories
 	- uname - system information (-a) for all info 
-	- apt (dpkg for lower level) - package management system
+	- apt (dpkg for lower level) - package management system - Advanced Packaging Tool
+			- apt install -y (installs packages and the -y for scripting)
+			- apt update - downloads package information do this before upgrade command
+			- apt upgrade - upgrades existing packages does not install new packages
+			- apt autoremove - gets rid of any old packages not needed anymore
+			- apt clean - cleans out cache files and any archived package files that have been installed;
+		- apt-cache or apt-file - queries the package cache of the apt
+			- apt-cache akgnames | grep (packetname)
 		- dpkg -S [package name i.e. logrotate] find out what package the file belongs to
 		- dpkg - L [package name] list info about the package
 		- dpkg -V [package name] verify the package installation
@@ -66,13 +73,11 @@ OS:
 	- umask - octal form; changes the default permissions and thus the permissions for all newly created files and folders; umask -S - symbolic form;
 		- octal version inverted chmod
 	- getfacl - filesystem acls (access control lists)
-	- setfacl
-	- date - 
+	- setfacl - to change the filesystem acls
+	- date - displays date & time set on your device
 	- tar - compression
 	- cat - display/view contents of file 'concatenate'
-	- less
-	- du - disk usage
-	- df
+	- less - displays the contents of a file or a command output, one page at a time
 	- ssh - secure shell protocol login
 		- ssh-keygen - generates private and public encryption keys; private key don't share; public key cp to machine you want to permit password-less access; ssh [username]@localhost
 		- cat authorized_keys - holds all the public keys
@@ -85,15 +90,17 @@ OS:
 		- diff - compares 2 files or directories - -y for side by side viewing
 	- File utilities
 		- locate/find - find files, directories, etc
+		- du - disk usage, reports files' and directories' disk usage
+		- df - disk filesystem, displays the amount of disk space available on the filesystem with each file name's argument
 	- Users & passwords:
 		- useradd - useradd -m(creates home dir) -c "Full Name" -s /bin/bash [username]
 		- userdel - userdel -r(removes home dir) [username]
 		- passwd - passwd [username]
-		- chage - 
+		- chage - to view & change the user password expirty info
 		- groupadd; groupmod; groupdel; usermod -a
 	- SuperUser:
-		- sudo; su;
-	- 
+		- sudo -i; su;
+	- clear - clears the screen (shortcut is crtl+l)
 · Linux package management 3 different types:
 	- Debian/Ubuntu
 	- Red Hat/Fedora/Centos
