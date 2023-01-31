@@ -1,17 +1,5 @@
 Preparation topics for candidates who are selected for loops: Cloud Support Associate. 
 
-Networking: 
-· Difference between router, switch. 
-· What is a Broadcast Domain? 
-· DHCP DORA process 
-· DNS – detailed explanation. TCP/UDP and why? 
-· Subnetting · MSS/MTU 
-· Complete flow when you trigger amazon.com 
-· OSI model with complete details and protocols on each layer. 
-· TCP and SSL handshake · Difference between TCP/UDP, examples 
-· Flow/error control · What is a firewall, why do you need it? 
-· OSI Model 
-· Subnet mask - what is it?
 
 OS: 
 · OS boot process (Linux) https://kumo-knowledge-ui-iad-prod.amazon.com/view/article_30921 https://www.geeksforgeeks.org/how-linux-kernel-boots/
@@ -131,3 +119,6 @@ Troubleshooting:
 · System booting issues 
 · System logs 
 · Network connectivity issues
+
+
+

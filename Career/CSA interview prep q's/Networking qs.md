@@ -1,7 +1,72 @@
+Networking: 
+· Difference between router, switch. 
+· What is a Broadcast Domain? 
+· DHCP DORA process 
+· DNS – detailed explanation. TCP/UDP and why? 
+· Subnetting · MSS/MTU 
+· Complete flow when you trigger amazon.com 
+· OSI model with complete details and protocols on each layer. 
+· TCP and SSL handshake · Difference between TCP/UDP, examples 
+· Flow/error control 
+· What is a firewall, why do you need it? 
+· OSI Model 
+· Subnet mask - what is it?
+
+ 
+Networking:
+- What is subnet mask?
+	- it defines the range of ip addresses that can be used within a network or subnet;
+- Why do we use subnet? 
+	- cause it is good planning, and 
+	- is used to segregate departments
+- how many usable ips with blah subnet i.e. 192.168.0.32/24:
+	- think - 4 octets i.e. 00000000.00000000.00000000.000000000 /24 is default
+	- 
+		- 	![[Pasted image 20221208161943.png]]
+- what is the dhcp dora process i.e. how you receive a new ip address; 
+	- discover - offer - request - acknowledgement
+- What is the osi model - 7 layers - 
+	- 7 - Application - giving access to the network
+	- 6 - Presentation - 
+	- 5 - Session - 
+	- 4 - Transport - from source to destination, UDP & TCP
+	- 3 - Network - info about networking 
+	- 2 - Data link - 
+	- 1 - Physical - electrical specs/hardware
+- What is DNS?
+	- Domain Name System
+	- default is 8.8.8.8
+	- the phone book of the internet, it connects web browsers with websites;
+- DNS message format
+	- A - an end device ipv4 address
+	- NS - an authoritative name server
+	- SOA - 
+	- CNAME - 
+	- MX - a mail exchange record
+
+
+- other q's
+	- what is the difference between router and switch?
+		- router can connect multiple network, a switch connects devices within a network
+	- what is a protocol you would use for a switch
+		- 
+	- what is a broadcast domain
+		- an area of computers that are connected by switches and will stop at the router
+	- what happens when you type amazon.com into browser:
+		- 1st it checks the cache if ip is cached already, in not
+		- it goes to the root server, if still not known
+		- it sends it to the 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  ARINHow many usable hosts?
 	https://jodies.de/ipcalc
 	https://cidr.xyz/ - count is the answer;
-	![[Pasted image 20221208161943.png]]
+
 
 What ports is your local machine using for connections? 
 	netstat -ano - cli command
