@@ -6,6 +6,11 @@ In VSCode, open terminal and paste copied command.  press enter.
 to confirm setup type in CLI:
 aws s3 ls %%This should output a list of all s3 buckets on your  account%%
 
+
+
+
+
+
 %%configure git to github%%
 git config user.name "username"
 git config user.email "user@email.com" 
