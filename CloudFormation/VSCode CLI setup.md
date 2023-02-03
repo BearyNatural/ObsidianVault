@@ -17,15 +17,27 @@ git config user.email "user@email.com"
 
 %%commands to push to github%%
 git add [filename]
-git commit -m "commit name or reason"
+git commit -ms "commit name or reason"
 git push -u origin
+
+%%setuplocalproject%% 
+mkdir git-[projectname]
+cd git-[projectname]
+git init
+ls -l .git
 
 %%others%% 
 git diff - shows the difference of files add and then changed;
 git log
 git clone
 git init 
-
+git gui or git-gui
+git k 
+cgit - can be installed in concert with a web server to enable very efficient repository browsing
+gitweb
+git --version
+git help [command]
+git help --all
 
 
 ![[Pasted image 20230127115936.png]]
