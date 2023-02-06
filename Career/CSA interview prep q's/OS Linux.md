@@ -24,15 +24,28 @@ OS:
 		-   5 – Multiple user mode under GUI (graphical user interface) and this is the standard runlevel for most of the LINUX based systems.
 		-   6 – Reboot which is used to restart the system.
 · Memory management; Memory pages; Buffer and Caches, Basic commands 
+	- free, swap, top, vmstat, pmap
+	- /proc/sys/vm & /proc/meminfo
+	- sudo dmesg for seeing the audit trail - kernel related messages good if there is a crash see what caused it;
 · System date/time management, network time protocol 
+	- timedatectl 
 · Managing Users and groups 
+	- useradd, userdel, id, groupmod; groupadd; etc;
+	- chgrp, chmod, chown;
 · File permissions RWX
+	- chown, chmod, umask, 
+	- chmod - change permissions for files and folders that already exist!  
+		- parameters - owner, group & others  
+		- Set the default permission of file to 622 (666-622=044) and directory to 733 (777-733=044)  
+	- umask - changes the default permissions and thus the permissions for all newly created files and folders  
+		- octal version inverted chmod
+	- If a directory is readable, writable, and executable by the owner, a selected group of users, and everyone on the system, its octal permission is 777. **If a file is readable and writable by the owner, a selected group of users, and everyone on the system, its octal permission is 666**.
 · Managing software’s - installation, uninstallation, upgrade etc. 
 · Managing system services and background processes 
 · Remote management of a system - SSH, RDP etc. 
 · Network protocols - FTP, HTTP (web servers), SMTP (mail server) 
 · System automation - cron, batch jobs, windows startup tasks 
-· Linux commands - 20 common commands **cat**, **chgrp**, **chmod**, **chown**, **cp**, **date**, **dd**, **df**, **dmesg**, **echo**, **false**, **hostname**, **kill**, **ln**, **login**, **ls**, **mkdir**, **mknod**, **more**, **mount**, **mv**, **ps**, **pwd**, **rm**, **rmdir**, **sed**, **sh**, **stty**, **su**, **sync**, **true**, **umount** and **uname**
+· **Linux commands** - 20 common commands **cat**, **chgrp**, **chmod**, **chown**, **cp**, **date**, **dd**, **df**, **dmesg**, **echo**, **false**, **hostname**, **kill**, **ln**, **login**, **ls**, **mkdir**, **mknod**, **more**, **mount**, **mv**, **ps**, **pwd**, **rm**, **rmdir**, **sed**, **sh**, **stty**, **su**, **sync**, **true**, **umount** and **uname**
 	- ls or ll - list files and directories in a directory (ll is short version if aliased)
 	- cd - change directory, used to move around directories
 	- uname - system information (-a) for all info 
@@ -62,6 +75,7 @@ OS:
 		- octal version inverted chmod
 	- getfacl - filesystem acls (access control lists)
 	- setfacl - to change the filesystem acls
+	- ulimit - displays or resets process resource limits; -a gives us all current limits;
 	- date - displays date & time set on your device
 	- tar - compression
 	- cat - display/view contents of file 'concatenate'
@@ -84,7 +98,7 @@ OS:
 		- useradd - useradd -m(creates home dir) -c "Full Name" -s /bin/bash [username]
 		- userdel - userdel -r(removes home dir) [username]
 		- passwd - passwd [username]
-		- chage - to view & change the user password expirty info
+		- chage - to view & change the user password expiry info
 		- groupadd; groupmod; groupdel; usermod -a
 	- SuperUser:
 		- sudo -i; su;
@@ -95,7 +109,7 @@ OS:
 	- OpenSuse/suse
 	- ![[Pasted image 20230123131532.png]]
 · Linux Standard Directory Tree - Main Directories
-	- / Root; 
+	- /root; 
 	- /bin executable programs that must be available in single user mode; 
 	- /boot boot system incl kernel, init; 
 	- /dev Device nodes that interact with hardware and software devices;

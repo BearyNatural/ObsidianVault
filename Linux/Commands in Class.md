@@ -207,7 +207,7 @@ ping facebook.com
 
 cat /var/lib/dhclient/dhclient--eth0.lease
 cat /var/log/messages | grep DHCP
-hostnamectl set-hostname testInstance-1
+- [ ] hostnamectl set-hostname testInstance-1
 hostname
 
 nslookup [domainname]
