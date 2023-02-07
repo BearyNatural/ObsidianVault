@@ -11,6 +11,7 @@ Networking:
 · What is a firewall, why do you need it? 
 · OSI Model 
 · Subnet mask - what is it?
+what if you can't ping?
 
  
 Networking:
@@ -44,8 +45,9 @@ Networking:
 	- CNAME - 
 	- MX - a mail exchange record
 
-
+route or ip route for all networks and local hosts
 - other q's
+	- ip link show - part of ip utility info for all network interfaces;
 	- what is the difference between router and switch?
 		- router can connect multiple network, a switch connects devices within a network
 	- what is a protocol you would use for a switch

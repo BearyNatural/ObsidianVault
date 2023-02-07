@@ -23,6 +23,38 @@ OS:
 		-   4 – User-definable.
 		-   5 – Multiple user mode under GUI (graphical user interface) and this is the standard runlevel for most of the LINUX based systems.
 		-   6 – Reboot which is used to restart the system.
+	- Bootprocess failures
+		- no bootloader screen
+			- cause 
+				- check for GRUB misconfiguration or 
+				- a corrupt boot sector.  
+			- fix
+				- Bootloader re-install needed?
+		- Kernel fails to load
+			- cause 
+				- most likely misconfigured or 
+				- corrupt kernel or 
+				- incorrect kernel boot parameters in the GRUB conf file.
+			- if it has previously booted successfully in the past either 
+				- it has corrupted or 
+				- bad parameters have been applied;
+			- fixes
+				- re-install the kernel;
+				- enter into interactive GRUB menu at boot;
+				- try re-booting into a rescue image;
+		- Kernel loads but fails to mount the root filesystem
+			- cause
+				- misconfigured GRUB config file
+				- misconfigured /etc/fstab
+				- no support for the root fs type build into the kernel or in the initramfs image
+		- Failure during the init process
+			- cause
+				- many things could go wrong here
+					- corrupted fs
+					- startup script errrors, etc
+				- see messages that are displayed before things stop
+			- fix
+				- try booting at a lower runlevel such as 3 (no graphics) or 1 (single user)
 · Memory management; Memory pages; Buffer and Caches, Basic commands 
 	- free, swap, top, vmstat, pmap
 	- /proc/sys/vm & /proc/meminfo
@@ -41,8 +73,17 @@ OS:
 		- octal version inverted chmod
 	- If a directory is readable, writable, and executable by the owner, a selected group of users, and everyone on the system, its octal permission is 777. **If a file is readable and writable by the owner, a selected group of users, and everyone on the system, its octal permission is 666**.
 · Managing software’s - installation, uninstallation, upgrade etc. 
+	- sudo apt update
+	- sudo apt upgrade -y
+	- sudo apt autoremove -y
+	- sudo apt autoremove [packagename]
 · Managing system services and background processes 
 · Remote management of a system - SSH, RDP etc. 
+	- secure shell protocol login
+		- ssh-keygen - generates private and public encryption keys; private key don't share; public key cp to machine you want to permit password-less access; ssh [username]@localhost
+		- cat authorized_keys - holds all the public keys
+		- cat known_hosts - contains only info about computer nodes it detects changes in the users who are tying to log in;
+		- pssh - parallel ssh used to execute a command on multiple systems at one time;
 · Network protocols - FTP, HTTP (web servers), SMTP (mail server) 
 · System automation - cron, batch jobs, windows startup tasks 
 · **Linux commands** - 20 common commands **cat**, **chgrp**, **chmod**, **chown**, **cp**, **date**, **dd**, **df**, **dmesg**, **echo**, **false**, **hostname**, **kill**, **ln**, **login**, **ls**, **mkdir**, **mknod**, **more**, **mount**, **mv**, **ps**, **pwd**, **rm**, **rmdir**, **sed**, **sh**, **stty**, **su**, **sync**, **true**, **umount** and **uname**
@@ -68,6 +109,8 @@ OS:
 	- rmdir - remove or delete directory
 	- chown - change ownership
 	- chgrp - change group ownership
+	- vm control commands/tools
+		- cgroups; nice; numactl;
 	- chmod - change permissions for files and folders that already exist!
 		- parameters - owner, group & others
 		- Set the default permission of file to 622 (666-622=044) and directory to 733 (777-733=044)
@@ -94,6 +137,8 @@ OS:
 		- locate/find - find files, directories, etc
 		- du - disk usage, reports files' and directories' disk usage
 		- df - disk filesystem, displays the amount of disk space available on the filesystem with each file name's argument
+		- partitions 
+			- fdisk; blkid; lsblk;
 	- Users & passwords:
 		- useradd - useradd -m(creates home dir) -c "Full Name" -s /bin/bash [username]
 		- userdel - userdel -r(removes home dir) [username]
@@ -103,6 +148,13 @@ OS:
 	- SuperUser:
 		- sudo -i; su;
 	- clear - clears the screen (shortcut is crtl+l)
+	- Virtualisation
+		- podman - not working best on vmbox
+			- systemctl start/stop/status podman.socket
+			- podman --help
+		- docker using this one
+			- systemctl start/stop/status docker
+			- 
 · Linux package management 3 different types:
 	- Debian/Ubuntu
 	- Red Hat/Fedora/Centos
@@ -125,6 +177,11 @@ OS:
 	- /run transient files i.e. runtime info, system startup, etc;
 	- 
 	- ![[Pasted image 20230124104604.png]]
+- LDAP - lightweight directory access protocol i.e. provides directory services i.e. phonebook via the ip protocol
+	- single sign on & identity management solutions
+	- ldap provides authentication and authorisation data
+to find out your ip address in the cli:
+	sudo lynx -dump http://whatismyip.akamai.com | awk '{print $1}'
 
 
 Troubleshooting: 
