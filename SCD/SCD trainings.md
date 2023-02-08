@@ -16,3 +16,11 @@ does not support HTTPS. If need https then use cloudfrontmust be public bucket, 
 	- Action: Type of access that is allowed or denied
 	- Resource: The amazon resource the action will act on
 	- Condition: The conditions that are valid under the access defined
+
+storage gateway family
+- s3 file gateway: file storage backed by s33
+- volume gateway: backed by ebs shapshots
+- tape gateway: virtual tapes that uses amazon glacier
+- fsx file gateway: file storage backed by fsx for windows
+
+

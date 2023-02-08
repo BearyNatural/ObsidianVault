@@ -14,7 +14,7 @@ OS:
 			5.  Auxiliary kernel system setup
 			6.  Root filesystem mount
 			7.  Userspace begin
-	- Init - 
+	- Init - executes system boot & fstab
 	- Runlevel - 7 run levels 0 - 7 
 		- 0 – System halt _i.e_ the system can be safely powered off with no activity.
 		-   1 – Single user mode.
