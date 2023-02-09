@@ -23,4 +23,6 @@ storage gateway family
 - tape gateway: virtual tapes that uses amazon glacier
 - fsx file gateway: file storage backed by fsx for windows
 
+internal error during today's lab, need to go to vpc endpoints and delete storage gateway interface that was created in the private - will be recreated later??
+go back to storage gateway and recreate as per instructions
 
