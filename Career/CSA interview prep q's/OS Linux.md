@@ -162,7 +162,7 @@ OS:
 	- ![[Pasted image 20230123131532.png]]
 · Linux Standard Directory Tree - Main Directories
 	- /root; 
-	- /bin executable programs that must be available in single user mode; 
+	- /bin  binaries executable programs that must be available in single user mode; 
 	- /boot boot system incl kernel, init; 
 	- /dev Device nodes that interact with hardware and software devices;
 	- /etc system wide configuration files;
@@ -172,10 +172,10 @@ OS:
 	- /media mounting points for removable media such as cd, dvd, usb;
 	- /mnt temporarily mounted filesystems;
 	- /usr files not needed for system booting i.e software, games, etc;
-	- /proc variable or volatile data files that frequently change during system operation i.e. logs, admin files, cache contents;
+	- /proc interface to linux kernel; variable or volatile data files that frequently change during system operation i.e. logs, admin files, cache contents;
 	- /msc miscellaneous data
 	- /run transient files i.e. runtime info, system startup, etc;
-	- 
+	- /var log files
 	- ![[Pasted image 20230124104604.png]]
 - LDAP - lightweight directory access protocol i.e. provides directory services i.e. phonebook via the ip protocol
 	- single sign on & identity management solutions
@@ -193,3 +193,5 @@ Troubleshooting:
 
 
 
+man -k [command]
+2>/dev/null - gets rid of permission errors in find command output
