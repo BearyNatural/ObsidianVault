@@ -195,3 +195,8 @@ Troubleshooting:
 
 man -k [command]
 2>/dev/null - gets rid of permission errors in find command output
+
+stdin doesn't work on ubuntu 
+
+difference between zombie & orphan processes
+ugo - user,group,other - permissions

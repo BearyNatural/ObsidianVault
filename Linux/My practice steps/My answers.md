@@ -195,6 +195,17 @@
 	1. As the Linux system administration of AVC company you have been getting complaints about the performance of some of the Linux servers used by your development team.  After investigating the source of these performance issues you realise the number of running processes started by users is too high.
 		1. Set a limit on the number of processes users of the 'developer' group can start to 20.
 		2. Ensure that user 'Bob' who is a member of the 'developer' group is not impacted by these limits.
+		3. Answers:
+			1. sudo -i
+			2. find /etc | grep limit
+			3. cat /etc/security/limits.conf
+			4. vi /etc/security/limits.conf
+				1. @developer hard nproc 20
+				2. Bob hard nproc [all] (if this doesn't work try a '-' instead of hard)
+			5. su - Bob
+				1. ulimit -a
+				2. exit
+			6. 
 	2. As a Linux System administrater you will often be tasked with recording and making changes to networking configuration of VMs.  For the below question you will need to ssh to exam-1 to complete the following: NOTE: for the purpose of the practice exam perform this locally, but ensure you are familiar with how to ssh to a remove server.
 		1. Write the contents of the routing table to a file in /usr/local/networking/routing.txt 
 	3. As a Linux System administrator you will often be tasked with maintaining webservers.  Sometimes you will want to change the default behavior of the apache2 service to accomidate your needs.
