@@ -191,7 +191,7 @@
 	24. .
 		1. Answer: 
 			1. .
-- Linux Foundation Prac Exam: run the setup.sh
+- Linux Foundation Prac Exam: run the setup.sh + 1x5gebs + 2 x 4gebs
 	1. As the Linux system administration of AVC company you have been getting complaints about the performance of some of the Linux servers used by your development team.  After investigating the source of these performance issues you realise the number of running processes started by users is too high.
 		1. Set a limit on the number of processes users of the 'developer' group can start to 20.
 		2. Ensure that user 'Bob' who is a member of the 'developer' group is not impacted by these limits.
@@ -313,7 +313,7 @@
 					1. blkid
 					2. UUID=5abcf53d-1de6-4ce5-9095-79574eaed6f2 /mnt  ext3  defaults 0 2
 				9. https://www.thegeekstuff.com/2010/08/how-to-create-lvm/
-				10. https://www.linuxbabe.com/desktop-linux/how-to-automount-file-systems-on-linux
+				10. [ ] https://www.linuxbabe.com/desktop-linux/how-to-automount-file-systems-on-linux
 	8. Automating routine system tasks using bash scripts can help system administrators complete routine tasks.  Write and run bash script to complete the following system exercises:
 		1. Create 2 files in a new directory called ‘manuals’ located in your home directory
 			1. Name the first file ‘sed-info’ and redirect the output of the ‘sed’ command man page to the contents of the file
@@ -322,26 +322,110 @@
 		3. decompress the file in the /usr/archive
 		4. Move the back up file to /usr/backups
 		5. Ensure to clean up any old backup files
-	9. System administrotrs need to often setup and maintain network connectivity between machines withing the business.  SSH to exam-1 and complete the following network changes to meet the requirements:  NOTE: if your virtual machine running in the cloud you may not be able to update these values; however you can review the file(s) and proccesses.
+		6. Answers:
+			1. Write the bash script2:
+				1. #!/bin/bash
+				2. # 
+				3. #comments
+				4. rm -r /home/manuals
+				5. mkdir -p /home/manuals
+				6. cd /home/manuals
+				7. man sed > sed-info
+				8. man grep > grep-info
+				9. tar -cvf manuals.tar *
+				10. xz -z manuals.tar
+				11. mv manuals.tar.xz /usr/archive
+				12. xz -d manuals.tar.xz
+				13. mv manuals.tar /usr/backups
+				14. exit 0
+			2. chmod +x script2
+			3. ./script2
+			4. to run it regularly i.e. crontab
+				1. crontab -e
+				2. select editor of choice
+				3. in file enter line for automating the script the file explains it all double check the times use the date command to find out the computer time
+				4. check once it is done
+	9. System administrators need to often setup and maintain network connectivity between machines withing the business.  SSH to exam-1 and complete the following network changes to meet the requirements:  NOTE: if your virtual machine running in the cloud you may not be able to update these values; however you can review the file(s) and proccesses.
 		1. Configure your Linux machine with a static networking configuration
 		2. After you have set up static networking, add a secondary DNS server at the address of 8.8.8.8
 		3. Find a list of current nameservers for the system and redirect the output to a file called ‘dnsservice’ located in /srv/dns
 		4. Find the hostname and IP address of your machine and append the output to a file named dns-service located in /srv/dns
-	10. System administrators will often have to diagnose and fix disks on Linux machines.  The disk where /mnt/backup is mounted is not working. Repair the disk and verify it will be automatically mounted upon reboots.  NOTE: This question is hard to simulate; however, you can run the corrisponding commands on a working disk and see the outputs.
+		5. Answers: these aren't correct I don't think - doesn't match my system :( )
+			1. configure to static:
+				1. vi /etc/network/interfaces [change 2nd line to]
+				2. iface eth0 inet dhcp [iface eth0 inet static \n address 192.168.0.100 \n netmask 255.255.255.0 \n gateway 192.168.0.1 \n dns-nameservers 8.8.8.8]
+			2. cat /etc/resolv.conf | grep nameserver
+			3. resolvectl status
+			4. systemctl restart network
+	10. System administrators will often have to diagnose and fix disks on Linux machines.  The disk where /mnt/backup is mounted is not working. Repair the disk and verify it will be automatically mounted upon reboots.  NOTE: This question is hard to simulate; however, you can run the corresponding commands on a working disk and see the outputs.
+		1. Answers:
+			1. fsck -a /dev/driveletters
+			2. mount /devdriveletters /mnt/backup
+			3. blkid
+			4. vi /etc/fstab [uuid=blkiduuid /dev/driveletters /mnt/back ext4 defaults 0 0]
 	11. Setting up redundencies amoung disks is often an important taks that system administrators must complete.  Create a RAID 1 device named md0 using 2 disk devices of 1GB each and complete the following:  NOTE: You will have to add additional disks to do this on your VM. The names may differ than what is shown from my lsblk command
 		1. Put a ext4 file system on it with the label of ‘md0’
 		2. Add a spare disk of 1GB
 		3. Mount to /raid
-		4. Save the configuration and write the configuration file to /etc/mdadm/mdadm.conf
+		4. Save the raid configuration and write the configuration file to /etc/mdadm/mdadm.conf
 		5. make it persistant
+		6. Answers:
+			1. lsblk
+				1. nvme2n1 (sdb)
+				2. nvme3n1 (sdc)
+			2. fdisk -l
+				1. MBR = msdos | GPT = gpt
+				2. parted /dev/sdb mklabel msdos
+				3. parted /dev/sdc mlabel msdos
+			3. fdisk /dev/sdb then do sdc
+				1. n
+				2. p
+				3. 1
+				4. blank
+				5. +1G
+				6. p
+				7. t [to change the partition type]
+				8. fd  [set partition type to linux raid autodetect]
+				9. p
+				10. w
+			4. lsblk
+				1. nvme2n1p1 (sdb1)
+				2. nvme3n1p1 (sdc1)
+			6. mdadm - is it installed? apt install mdadm -y [installed]
+				1. mdadm --create /dev/md0 --level=mirror --raid-devices=2 /dev/sdb1 /dev/sdc1
+				2. mdadm --detail /dev/md0
+			7. format & mount
+				1. mkfs.ext4 /dev/md0
+				2. mkdir /mnt/raid1
+				3. mount /dev/md0 /mnt/raid1
+				4. df -kh /mnt/raid1
+				5. https://www.linuxbabe.com/linux-server/linux-software-raid-1-setup
+			8. save raid configuration
+				1. mdadm --detail --scan --verbose >> /etc/mdadm/mdadm.conf
+			9. make it persistent
+				1. blkid /dev/md0 [grab uuid]
+				2. vi /etc/fstab
+					1. UUID=1700a7ef-6dbc-416f-b45d-149897e86f2d /mnt/raid1 ext4 defaults 0 0
 	12. Managing groups and group permissions is an important task for system administrators:  Perform the following actions:
 		1. Make the following groups:
 			1. employees
 			2. contractors
-		2. Make a new directory called /srv/admin
+		2. Make a new directory called /srv/admins
 		3. Give the group administrators full access (read/write/execute) to /srv/admins
 		4. Give the group admin the same rights/privileges as root and allow members of the group to run all commands without a password prompt.
 		5. Create a directory /data/list and then create a file ‘list-info’. Redirect the output of the ‘ls’ manual page into the contents of the file.
+		6. Answers:
+			1. groupadd employees
+			2. groupadd contractors
+			3. mkdir -p /srv/admins
+			4. chmod g+w /srv/admins
+			5. cat /etc/passwd [compgen -u or compgen -g works also!!!]
+			6. cat /etc/group | grep admin [admin is a group assumed group administrators]
+			7. chgrp admin /srv/admins [ll /srv to check]
+			8. find /etc | grep sudo
+			9. vi /etc/sudoers [%admin ALL=(ALL) NOPASSWD:ALL]
+			10. mkdir -p /data/list
+			11. man ls > /data/list/list-info
 	13. Managing users is an important task of a Linux system administrator.  Perform the following actions (read section as some steps can be combined):
 		1. Create the following users:
 			1. linuxbro
@@ -357,6 +441,18 @@
 		7. Add accounts gharrison and pmccartney to the employees group
 		8. Ensure each user has a folder in their home directory called ‘welcome-info’
 		9. Set each account’s password to [‘Pa$$w0rd’] and make them change it on next login
+		10. Answers:
+			1. touch /etc/skel/welcome-info [do this 1st as this will automatically add to each new users home directory]
+			2. useradd -m gharrison [jlennon, pmccartney, rstarr]
+			3. useradd -m -c "Linux Broman" -s /bin/bash linuxbro
+			4. usermod --shell zsh linuxbro
+			5. usermod -ag admin linuxbro
+			6. date [feb 14 2023] -e yyyy-mm-dd
+				1. usermod -e 2025-02-14 jlennon rstarr [chage -l username to check]
+			7. usermod -aG contractors jlennon rstarr
+			8. usermod -aG employees gharrison pmccartney
+			9. usermod -p [‘Pa$$w0rd’] linuxbro gharrison jlennon pmccartney rstarr
+			10. chage -d 2023-02-14 linuxbro gharrison jlennon pmccartney rstarr
 	14. The cron.d service is often used to run system scripts on a regular basis.  Create a series of scheduled tasks:
 		1. Run the system-info script every day at 6am, 9am, 12pm, 3pm, and 6pm (except Saturday and Sundays).
 		2. Run the system-info script on January 9th at 11:01pm
