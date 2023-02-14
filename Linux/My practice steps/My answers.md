@@ -201,30 +201,69 @@
 			3. cat /etc/security/limits.conf
 			4. vi /etc/security/limits.conf
 				1. @developer hard nproc 20
-				2. Bob hard nproc [all] (if this doesn't work try a '-' instead of hard)
+				2. Bob hard nproc 4194304 [/proc/sys/kernel/pid_max]
 			5. su - Bob
 				1. ulimit -a
-				2. exit
-			6. 
+				2. exit 
 	2. As a Linux System administrater you will often be tasked with recording and making changes to networking configuration of VMs.  For the below question you will need to ssh to exam-1 to complete the following: NOTE: for the purpose of the practice exam perform this locally, but ensure you are familiar with how to ssh to a remove server.
 		1. Write the contents of the routing table to a file in /usr/local/networking/routing.txt 
-	3. As a Linux System administrator you will often be tasked with maintaining webservers.  Sometimes you will want to change the default behavior of the apache2 service to accomidate your needs.
+		2. Answers: 
+			1. don't need to ssh as it says above - chill
+			2. ip route [current recommended way of printing the routing table in Linux]
+			3. ip route > /usr/local/networking/routing.txt
+			4. cat /usr/local/networking/routing.txt
+			5. other ways of seeing the routing table:
+				1. netstat -r
+				2. route -n (wasn't installed)
+	3. As a Linux System administrator you will often be tasked with maintaining webservers.  Sometimes you will want to change the default behavior of the apache2 service to accommodate your needs.
 		1. Update the port that the apache2 service listens on from 80 to 1990.
 		2. Ensure these changes are persistent
-	4. As a Linux System administrator you will often make changes to Virtual Machines running in your environment.  NOTE you will need to install libvirt libvirt-bin qemu qemu-kvm virt-install virt-manager wget and create the webservers first with but the exam seems to test your ability to modify runnign webservers.  see q4 for further instructions.
+		3. Answers:
+			1. systemctl status apache2
+			2. netstat -lnp
+			3. find /etc | grep apache2
+			4. cat /etc/apache/ports.conf
+			5. vi /etc/apache/ports.conf
+				1. change line 'Listen 80' to 'Listen 1990'
+			6. cat /etc/apache/ports.conf
+			7. systemctl restart apache2
+			8. systemctl status apache2
+			9. netstat -lnp
+	4. As a Linux System administrator you will often make changes to Virtual Machines running in your environment.  NOTE you will need to install libvirt libvirt-bin qemu qemu-kvm virt-install virt-manager wget and create the webservers first with but the exam seems to test your ability to modify runnig webservers.  see q4 for further instructions.
 		1. Start webserver
 		2. Stop webserver2
 		3. Ensure that webserver automatically starts when the server restarts
+		4. Answers: - doesn't seem realistic to have to memorise a url :O 
+			1. apt install libvirt-clients -y
+			2. apt install qemu -y
+			3. apt install qemu-kvm libvirt-daemon-system -y
+			4. virsh list
+			5. virsh start webserver
+			6. virsh stop webserver2
+			7. virsh autostart webserver
 	5. Containerized services offer Linux administrators flexible options and often increased performance. Perform the following tasks with docker containers.
 		1. Stop the docker container 'docker1'
 		2. Delete the docker container 'docker2'
 		3. Create a docker container 'docker3' ensuring it automatically restarts when the system reboots
 		4. map port 80 on the container to 8080 on the local machine and use the latest version of nginx
+		5. Answers: these aren't setup and therefore you'll need to play with them at a later time;  just use the following commands:
+			1. docker container stop docker01
+			2. docker container stop docker02
+			3. docker container rm docker02
+			4. docker container create --name docker03 -p 80:8080 --restart unless-stopped nginx
+			5. other commands for playing:
+				1. docker container start docker03
+				2. docker ps; or
+				3. docker container list
 	6. Hard and soft links offer a wide variety of options for System administrators. Perform the following tasks with system links:
 		1. Create a hard link to /usr/local/links/hardlinkme.txt named 'hardlink1'
 		2. Create a soft link to /usr/local/links/softlinkme.txt named 'softlink1'
 		3. Write the path that 'softlink2' in /usr/local/links resolves to
 		4. Verify which file in /usr/local/links/hardlinks/ had the most hardlinks to it and write the number of hard links to a file called 'linknum' in /usr/local/links/hardlinks/
+		5. Answers:
+			1. ln /usr/local/links/hardlinkme.txt hardlink1
+			2. ln -s /usr/local/links/softlinkme.txt softlink1
+			3. ll [should show both hard & soft link files]
 	7. Logical volumes can enhance the file system capabilities of a Linux VM. Understanding and being able to manipulate them is critical to being a successful Linux administrator.  After attaching a 10gb disk for additional storage, perform the folling tasks:  NOTE: You will need to add an additional disk to your VM; however, the exam will specify which disk to use.
 		1. Create two partitions, each with 2GB of storage
 		2. Create a volume group name ‘vg01’ from the two partitions
@@ -233,6 +272,48 @@
 			2. Format it with the ext3 file system
 			3. Give it a label ‘lv01’
 			4. Mount it persistently to /mnt
+			5. Answers:
+				1. Create the partitions
+					1. fdisk --help
+					2. lsblk					3. .
+					3. df -kh [to check if drive is mounted]
+						2. mkfs --type ext3 /dev/nvme1n1
+						3. or mkfs.ext3 /dev/nvme1n1
+						4. mount /dev/nvme1n1 /mnt [don't mount the disk]
+						5. df -kh [confirm disk mount]
+						6. blkid [grab the uuid no ""]
+						7. vi /etc/fstab [UUID=ef25b663-d33e-479e-b90e-759287fb7dbc /mnt  ext3  defaults,noatime,nofail  1  0]
+					4. fdisk -l [disk /dev/nvme1n1  has the biggest space; plus up to 5 loops]
+					5. fdisk /dev/nvme1n1
+						1. m - do the following twice 
+						2. n [for add a new partition]
+						3. p [for primary]
+						4. 1 [for partition #]
+						5. [leave 1st blank as this is the start or the partition]
+						6. +2G [extend the partition 2Gbs]
+						7. p [print to confirm partitions]
+						8. w [this will write/save your partitions]
+				3. fdisk -l /dev/nvme1n1
+				4. lsblk [shows the mounted drive plus the partitions]
+					1. nvme1n1p1
+					2. nvme1n1p2
+				5. create physical volumes
+					1. pvcreate /dev/nvme1n1p1 /dev/nvme1n1p2
+					2. pvscan
+					3. pvdisplay
+				6. create volume group
+					1. vgcreate vg01 /dev/nvme1n1p1 /dev/nvme1n1p2
+					2. vgdisplay
+				7. create logical volume
+					1. lvcreate --help
+					2. lvcreate --size 2g --name lv01 vg01
+					3. lvdisplay
+					4. mkfs.ext3 /dev/vg01/lv01
+				8. mount /dev/vg01/lv01 /mnt
+					1. blkid
+					2. UUID=5abcf53d-1de6-4ce5-9095-79574eaed6f2 /mnt  ext3  defaults 0 2
+				9. https://www.thegeekstuff.com/2010/08/how-to-create-lvm/
+				10. https://www.linuxbabe.com/desktop-linux/how-to-automount-file-systems-on-linux
 	8. Automating routine system tasks using bash scripts can help system administrators complete routine tasks.  Write and run bash script to complete the following system exercises:
 		1. Create 2 files in a new directory called ‘manuals’ located in your home directory
 			1. Name the first file ‘sed-info’ and redirect the output of the ‘sed’ command man page to the contents of the file

@@ -49,7 +49,7 @@ umount /[directory]
 cat /etc/fstab
 blkid
 vim /etc/fstab
-UUID=c150e2d7-f235-4102-a8bc-19af615e4db7 /mnt  ext4  defaults,noatime,nofail  1  0  
+UUID=731e0efa-4540-4d80-a023-7b9ce0041775 /mnt  ext4  defaults,noatime,nofail  1  0  
 automount drive - https://www.linuxbabe.com/desktop-linux/how-to-automount-file-systems-on-linux
 
 which ls [mkdir, touch, ls, cat][find libraries\directories]
