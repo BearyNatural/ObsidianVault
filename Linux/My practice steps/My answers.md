@@ -458,31 +458,117 @@
 		2. Run the system-info script on January 9th at 11:01pm
 		3. run the system-info script in the first 10 minutes of the hours 14 and 15 on the 4th day of jan feb and april, monday through friday
 		4. Run the system-info script every 3 months at 12:01am
+		5. Answers:
+			1. couldn't find this system-info script so I made copies of previously made script2
+				1. cp /root/script2.sh /root/script3.sh
+				2. cp /root/script2.sh /root/script4.sh
+				3. cp /root/script2.sh /root/script5.sh
+			2. crontab -e
+				1. 00 06,09,12,15,18 * * 1,2,3,4,5 ./script3.sh
+				2. 01 23 09 01 * ./script4.sh
+				3. 10 14,15 04 01,02,04 1,2,3,4,5 ./script2.sh
+				4. 01 0 1 */3 * ./script5.sh
 	15. Find all of the the files in /home/example:
 		1. that are not owned by Sue and write them to a file /home/example/answer1 overriding anything that is currently there
 		2. that have the suid enabled and append them to a file /home/example/answer2
 		3. that are 126MB in size and append them to a file /home/example/answer3
 		4. that are larger than 400kb and write them to a file /home/example/answer4 overriding anything that is currently there
 		5. that have a .tar extention and haven't been accessed in more than 30 days
-	16. User 'Bob' recieved several error messages while trying to run commands as root this morning.  NOTE: You can nu to Bob and run some root commands to generate this log activity.
-		1. Search the log viles in /var/log and write any errors pertaining to this to /usr/log/root.error
+		6. [ ] Answers: best to move into the actual folder /home/example for this activity
+			1. ll /home/example/
+				1. -rw-r--r--  1 root root          0 Feb 13 21:38 answer1
+				2. -rw-r--r--  1 root root          0 Feb 13 21:38 answer2
+				3. -rw-r--r--  1 root root          0 Feb 13 21:38 answer3
+				4. -rw-r--r--  1 root root          0 Feb 13 21:38 answer4
+				5. -rw-r--r--  1 root root          0 Feb 13 21:38 answer5
+				6. -rw-r--r--  1 Bob  admin         0 Feb 13 21:38 file0
+				7. -rw-r--r--  1 Sue  admin         0 Feb 13 21:38 file1
+				8. -rw-r--r--  1 root root  132120576 Feb 13 21:38 file10
+				9. -rw-r--r--  1 root root     524288 Feb 13 21:38 file11
+				10. -rw-r--r--  1 Sue  admin         0 Feb 13 21:38 file2
+				11. -rw-r--r--  1 Sue  admin         0 Feb 13 21:38 file3
+				12. -rw-r--r--  1 Sue  admin         0 Feb 13 21:38 file4
+				13. -rw-r--r--  1 Sue  admin         0 Feb 13 21:38 file5
+				14. ------S---  1 Sue  admin         0 Feb 13 21:38 file6
+				15. -rw-r--r--  1 Sue  admin         0 Feb 13 21:38 file7
+				16. ------S---  1 Sue  admin         0 Feb 13 21:38 file8
+				17. -rw-r--r--  1 Sue  admin         0 Feb 13 21:38 file9
+			2. find /home/example/ -type f ! -user Sue > /home/example/answer1
+				1. cat /home/example/answer1
+			3. find /home/example/ -type f -perm /4000 > /home/example/answer2
+				1. cat /home/example/answer2
+			4. find /home/example/ -type f -size 126M > /home/example/answer3
+				1. cat /home/example/answer3
+			5. find /home/example/ -type f -size +400k > /home/example/answer4
+				1. cat /home/example/answer4
+			6. find /home/example/ -type f -name *.tar > /home/example/answer5
+				1. tar -cvf answer4.tar answer4 to check the command is correct 
+				2. cat /home/example/answer5
+	16. User 'Bob' recieved several error messages while trying to run commands as root this morning.  NOTE: You can su to Bob and run some root commands to generate this log activity.
+		1. Search the log files in /var/log and write any errors pertaining to this to /usr/log/root.error
+		2. Answers:
+			1. ll /var/log/
+			2. cat /var/log/auth.log or syslog or wtmp or faillog
+			3. cat /var/log/ | grep -r Bob | grep -ri error [ r looks recursively i.e. in things & i removes case sensitivity]
 	17. Find the apt package which owns the library file /usr/lib/NetworkManager/conf.d/10-slaves-order.conf and append the output to /rpm/rpm-data.  Find the last 5 rpm packages installed and append them to /rpm/rpm-data.
+		1. Answers:
+			1. dpkg --help | grep -i own
+			2. dpkg -S /usr/lib/NetworkManager [this is enough to find the owner chrony as conf.d doesn't exist]
 	18. Open the file under /home/student/textreferences/editme.txt and complete the following tasks:  NOTE: I'm sharing the exact keystrokes I use in vim to accomplish this. Keep in mind with copy paste, vim, and your imagination there are many ways to do this.
 		1. Move line 7777 to line 1.
 		2. Remove line 7000.
 		3. Replace every occurrence of the word Earth shown with an uppercase E, with the word Globe.
 		4. Add a new line at the very end of the document that contains Auctores Varii
+		5. Answers:
+			1. Setup
+				1. cd /home/student/textreferences/
+				2. ll
+				3. exitme.txt is the only file in there
+			2. tasks
+				1. move line 7777 to line 1
+					1. :set nu [reveals the line numbers]
+					2. esc 7777 shift+g
+					3. :move -7777
+				2. Remove line 7000
+					1. esc 7000 shift+g
+					2. :d or dd
+				3. :%s/Earth/Globe/g
+				4. add new line at bottom of document
+					1. esc+G+A  [create new line,then type the following line] or :$
+					3. Auctores Varii
 	19. Manipulating services running on a system can be a very important task for system administrators.  There is a service named apache2 running on a system:  NOTE this is difficult to simulate the way the LFCS asks it, but these steps can be performed on sshd to see the commands in action
 		1. figure out which port apache2 is listening on
 		2. edit the config file for apache2 to listen on another port, 99
 		3. start apache2
 		4. send a SIGHUP signal to apache2
 		5. write the list of all files foo has open to /usr/service/foo.txt
+		6. Answers:
+			1. netstat -lnp | grep apache2
+			2. find /etc -type f -name *.conf | grep apache2   *
+				1. cat /etc/apache2/ports.conf
+				2. vi /etc/apache2/ports.conf [change port to Listen 99]
+				3. cat to confirm change
+				4. netstat -lnp | grep apache
+			3. systemctl start apache2
+				1. systemctl status apache2
+			4. SIGHUP signal is part of the SIGTERM kill commands
+				1. pidof apache2
+				2. kill -l 
+				3. kill -s 1 [pid]
+				4. pidof apache2
+			5. this foo person doesn't exist so therefore the command doesn't work...
+				1. mkdir /usr/service | lsof -i -u foo > /usr/service/foo.txt
 	20. Running scripts and manipulating their outputs is an important skill to understand as a system administrator.
-		1. run the sript at /usr/bin/samplescript.sh and append the standard out to the file at /usr/script/sampleone.txt
+		1. run the script at /usr/bin/samplescript.sh and append the standard out to the file at /usr/script/sampleone.txt
 		2. run the script at /usr/bin/samplescript2.sh and override the contents of the file at /usr/script/sampletwo.txt with the standard error
 		3. run the script at /usr/bin/samplescript.sh and use the standard out and standard error as a standard in for script /usr/bin/samplescript2.sh
 		4. append the standarrd out of this to /usr/script/samplethree.txt
+		5. Answers:
+			1. cd /usr/bin
+				1. ./samplescript.sh >> /usr/script/sampleone.txt [cat will be blank]
+				2. ./samplescript2.sh 2> /usr/script/sampletwo.txt [cat shows the error message]
+				3. ./samplescript.sh &> /usr/bin/samplescript2.sh [cat shows the bash error]
+				4. ./samplescript2.sh < intermediate.txt >> /usr/script/samplethree.txt
 	21. Performing backup, compression, and clean up are all important tasks for Linux System Administrators.  Perform the following tasks to demonstrate your ability to work with archives and compressed files:
 		1. create 3 blank files in your home directory and perform the following
 		2. Extract all files from archive file /opt/SAMPLE001.zip into target directory /opt/SAMPLE001
@@ -490,21 +576,42 @@
 		4. Compress the tar archive file /opt/SAMPLE0001.tar using the bzip2 compression algorithm
 		5. Compress the tar archive file /opt/SAMPLE0001.tar using the xz compression algorithm
 			1. Make sure that the uncompressed archive file /opt/SAMPLE0001.tar is not removed after creating the compressed versions of the archive file!
+		6. Answers:
+			1. touch blank1.txt; touch blank2.txt; touch blank3.txt;
+			2. tar -xf sample001.zip -C /opt/sample001
+			3. tar -cf sample0001.tar blank1.txt blank2.txt blank3.txt
+			4. xz -z archive.tar
+			5. xz -kz manuals.tar
 	22. Being able to quickly search files is an important task for system administrators.  Search the file /usr/sample/example.txt for the follwoing and write them to file.txt:
 		1. all lines that end with the word linux
 		2. all lines that start with the word Linux
 		3. all lines with Linux and yay both in them.
 		4. lines that contain linux or yay in them.
+		5. Answers:
+			1. cd /usr/sample
+			2. ll [confirmed example.txt is here]
+			3. grep -i 'linux$' example.txt > file.txt
+			4. grep '^Linux' example.txt >> file.txt
+			5. cat example.txt | grep Linux | grep yay >> file.txt
+			6. grep linux\|yay example.txt >> file.txt
 	23. Create a 1GB SWAP file and add it to the exiting SWAP pool. Ensure it is mounted at boot.  NOTE: understand the difference between Swap file and swap partition and be able to complete the above with both.
+		1. Answers: https://manpages.ubuntu.com/manpages/bionic/man8/swapon.8.html
+			1. fallocate -l 1G /swapfile
+			2. mkswap /swapfile
+			3. swapon /swapfile
+			4. swapon --show
 	24. Identifying the difference between files and directories is a common system administrator task.  
 		1. Find which files in /usr/diff/ is different and write the file name to a file /usr/diff/answer1
 		2. Find all of the files that are in /usr/diff/diff1 but not in /usr/diff/diff2 and write them to /usr/diff/answer2
+		3. Answers:
+			1. 
 	25. Complete the following:
 		1. Add Bob to the ACL for /usr/acl/file.txt so he can read and write to it
 		2. Remove Sue from the ACL for the file
 		3. Add group admin to the acl for the file with execute permissions
 		4. Delete /home/delete.me
-	26. 
+		5. Answers:
+			1. 
 
 
 
