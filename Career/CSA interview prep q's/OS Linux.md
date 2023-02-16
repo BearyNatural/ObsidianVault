@@ -78,6 +78,13 @@ OS:
 	- sudo apt autoremove -y
 	- sudo apt autoremove [packagename]
 · Managing system services and background processes 
+	- main 2 commands for managing processes
+		- ps - 
+			- **PID –** the unique process ID   
+			- **TTY –** terminal type that the user is logged into   
+			- **TIME –** amount of CPU in minutes and seconds that the process has been running   
+			- **CMD –** name of the command that launched the process.
+		- top - displays a list of info on each process i.e. cpu and memory, pid, useful for when needing to kill a pid i.e. sig terms
 · Remote management of a system - SSH, RDP etc. 
 	- secure shell protocol login
 		- ssh-keygen - generates private and public encryption keys; private key don't share; public key cp to machine you want to permit password-less access; ssh [username]@localhost

@@ -74,6 +74,8 @@ attaching following command under vim /etc/fstab did not work and failed the res
 UUID="c150e2d7-f235-4102-a8bc-19af615e4db7" /mnt ext3 defaults 0 0
 https://tldp.org/LDP/intro-linux/html/sect_03_01.html
 
+curl -vo null https://daydreaminginthecloud.bearynatural.dev/ for checking cache on a website
+
 SystemV:
 chkconfig ntpupdate --level3 on^C
 runlevel
