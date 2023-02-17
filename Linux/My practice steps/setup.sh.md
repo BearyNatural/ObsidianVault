@@ -22,11 +22,16 @@ echo \
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo apt install apache2 -y
+sudo apt install docker.io -y
 mkdir -p /usr/local/links/
 touch /usr/local/links/hardlinkme.txt
 touch /usr/local/links/softlinkme.txt
 mkdir -p /usr/local/links/hardlinks/
 touch /usr/local/links/hardlinks/linknum
+touch /opt/file1.txt
+touch /opt/file2.txt
+touch /opt/file2.txt
+tar -cvf /opt/SAMPLE001.zip /opt/file1.txt /opt/file2.txt /opt/file3.txt
 
 mkdir -p /usr/backups
 mkdir -p /usr/archive

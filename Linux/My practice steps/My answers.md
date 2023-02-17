@@ -142,15 +142,14 @@
 		4. Compress the tar archive file /opt/SAMPLE0001.tar  using the xz compression algorithm  
 			Make sure that the uncompressed archive file  /opt/SAMPLE0001.tar is not removed after creating the  compressed versions of the archive file!
 		1. Answer: 
-			1. cd /opt/
-			2. touch file1-3.txt
-			3. tar -cvf SAMPLE001.zip file*.txt
-			4. rm -r file*.txt
-			5. tar -xf SAMPLE001.zip
-			6. mv file*.txt /opt/SAMPLE001
-			7. tar -cvf SAMPLE0001.tar /opt/SAMPLE001/
-			8. bzip2 -zk SAMPLE0001.tar
-			9. xz -zk SAMPLE0001.tar
+			1. [ ] cd /opt/
+			2. rm -r file*.txt
+			3. tar -xf SAMPLE001.zip
+				1. 
+			4. mv file*.txt /opt/SAMPLE001
+			5. tar -cvf SAMPLE0001.tar /opt/SAMPLE001/
+			6. bzip2 -zk SAMPLE0001.tar
+			7. xz -zk SAMPLE0001.tar
 	3. D1:A data directory is not used anymore and is about to be archived.  You have been asked to identify and remove some files, before archiving takes place.  Perform the following tasks to demonstrate your ability to search  for files given various criteria:
 		1. Find all executable files in the directory /srv/SAMPLE002 and remove them
 		2. Find all files in the directory /srv/SAMPLE002, which have not been accessed during the last month and remove them
@@ -188,79 +187,127 @@
 			1. apt install tmux -y
 	7. D2:Create a cron job that kills all processes named scan_filesystem which is owned by root, every minute.
 		3. Answer: 
-			1. vi mycronjobscript.sh
+			1. vi script1.sh
 				1. killall -1 apache2
-			2. chmod u+x mycronjobscript.sh
+			2. chmod u+x script1.sh
 			3. crontab -e
-			4. */1 * * * * ./mycronjjobscript.sh     *
+			4. */1 * * * * ./script1.sh     *
 	8. D3:Linux administrators are responsible for the creation, deletion, and the modification of groups, as well as the group membership.  Complete the following tasks to demonstrate your ability to create and manage groups and group membership:
-		1. Create the computestream group.
-		2. Create a computestream folder in /exam/.
-		3. Make the compute stream group the owner of the /exam/computestream folder.
-		4. Answer:
-			1. .
+		1. Create a group called students.  
+		2. Create the computestream group.
+		3. Create a computestream folder in /exam/.
+		4. Make the compute stream group the owner of the /exam/computestream folder.
+		5. Answer:
+			1. groupadd students
+			2. groupadd computestream
+			3. mkdir -p /exam/computestream
+			4. ll /exam/
+			5. chown root:computesream -R /exam/computestream/
+			6. chmod -R g+w /exam/computestream
+			7. ll /exam/
 	9. D3:Create a candidate user account with the password cert456.  Modify the sudo configuration to let the candidate account  access root privileges with no password prompt.
 		1. Answer: 
-			1. .
+			1. useradd candidate -p cert456
+			2. vi /etc/sudoers
+			3. candidate ALL=(ALL) NOPASSWD:ALL
 	10.  D3:Configure the system so that an empty NEWS file is automatically created in the home directory of any new user.
 		1. Answer: 
-			1. .
+			1. touch /etc/skel/news [do this 1st as this will automatically add to each new users home directory]
 	11. D3:Create a new user account with the following attributes:
 		3. Username is harry.
 		4. Password is magic.
 		5. This user’s home directory is defined as /home/school/harry/.
 		6. This new user is a member of the existing students group.
-		7. The /home/school/harry/binaries/ directory is part of the PATH variable.
+		7. The /home/school/harry/binaries/ directory is part of the PATH variable.[do not do this one]
 		8. Answer: 
-			1. .
-	12. D3:Create a group called students.  Create a user account with username sysadmin with the following attributes:
+			1. useradd harry -p magic -m -d /home/school/harry [error message may pop up double check it is done]
+			2. ll /home/school/harry
+			3. usermod -aG students harry
+			4. id harry 
+	12. D3:Create a user account with username sysadmin with the following attributes:
 		1. Use a password of science.
 		2. This user’s home directory is defined as /sysadmin/.
 		3. sysadmin has sudo privileges and will not be prompted for a password when using the sudo command.
 		4. The default shell for this user is zsh.
 		5. Answer:
-			1. .
+			1. useradd sysadmin -p science -m -d /sysadmin
+			2. vi /etc/sudoers
+				1. sysadmin ALL=(ALL) NOPASSWD:ALL
+			3. chsh -s zsh sysadmin [may need to install it] apt install zsh -y [still errors zsh does not exist]
+			4. chsh -s $(which zsh) sysadmin
 	13. D3:Ensure that all users can invoke the last command and access a list of users who previously logged in.
 		1. Answer:
-			1. .
+			1. vi /etc/sudoers
+			2. $user ALL=(ALL) NOPASSWD:/bin/last
 	14. D3:Correct the projectadmin user account so that logins are possible using the password _onetime43_. Set the home directory to /home/projectadmin.
 		1. Answer:
-			1. .
+			1. usermod -p onetime43 -d /home/projectadmin projectadmin 
 	15. D3:Alter the devel user account so that it can log into the system with a working bash shell environment.
 		1. Answer:
-			1. /
+			1. chsh -s $(which bash) devel
 	16.  D4:Find ports under /etc/services:
 		1. Find the name of the service which uses TCP port 2605, as documented in /etc/services, and write the service name to the file /home/student/port-2605.txt.
 		2. Find all the ports used for TCP services IMAP3 and IMAPS, again as documented in /etc/services, and write those port numbers to the file /home/student/imap-ports.txt
 		3. Answer: 
-			1. .
-		4. .
-	17.  D4:Find the name of the service which uses TCP port 2605, as documented in /etc/services, and write the service name to the file /home/student/port-2605.txt. Find all of the ports used for TCP services IMAP3 and IMAPS, again as documented in /etc/services, and write those port numbers to the file /home/student/imap-ports.txt.
-		1. Answer: 
-			1. .
-	18.  D5:As a Linux System administrater you will often be tasked with recording and making changes to networking configuration of VMs.  
+			1. cat /etc/services | grep 2605 | awk '{print $1}' > /home/student/port-2605.txt
+			2. cat /home/student/port-2605.txt
+			3. cat /etc/services | grep tcp | grep -i imap | aws '{print $2}' | sed 's/\/.*//g' > /home/student/imap-ports.txt  
+	17. D5:As a Linux System administrater you will often be tasked with recording and making changes to networking configuration of VMs.  
 		1. Write the contents of the routing table to a file in /usr/local/networking/routing.txt 
 		2. Answer: 
-			1. .
-	19.  D5:As a Linux System administrator you will often be tasked with maintaining webservers.  Sometimes you will want to change the default behavior of the apache2 service to accommodate your needs.
+			1. .route -n > /usr/local/networking/routing.txt
+			2. cat /usr/local/networking/routing.txt
+	18.  D5:As a Linux System administrator you will often be tasked with maintaining webservers.  Sometimes you will want to change the default behavior of the apache2 service to accommodate your needs.
 		1. Update the port that the apache2 service listens on from 80 to 1990.
 		2. Ensure these changes are persistent
 		1. Answer: 
-			1. .
-	20.  D5:As a Linux System administrator you will often make changes to Virtual Machines running in your environment.  NOTE you will need to install libvirt libvirt-bin qemu qemu-kvm virt-install virt-manager wget and create the webservers first with but the exam seems to test your ability to modify runnig webservers.  see q4 for further instructions.
+			1. netstat -lnp | grep apache2
+			2. find /etc/ -name *.conf | grep apache2
+			3. cat /etc/apache2/ports.conf
+			4. vi /etc/apache2/ports.conf 
+			5. vi /etc/apache2/sites-available/000-default.conf
+			6. systemctl restart apache2
+			7. systemctl status apache2
+			8. netstat -lnp | grep apache2
+	19.  D5:As a Linux System administrator you will often make changes to Virtual Machines running in your environment.  NOTE you will need to install libvirt libvirt-bin qemu qemu-kvm virt-install virt-manager wget and create the webservers first with but the exam seems to test your ability to modify runnig webservers.  see q4 for further instructions.
 		1. Start webserver
 		2. Stop webserver2
 		3. Ensure that webserver automatically starts when the server restarts
 		1. Answer: 
-			1. .
-	21. D5:Containerized services offer Linux administrators flexible options and often increased performance. Perform the following tasks with docker containers.
+			1. apt install 
+				1. qemu-kvm -y
+				2. libvirt-daemon-system -y
+				3. virt-manager -y
+				4. wget -y
+			2. virsh list
+			3. virsh start webserver
+			4. virsh shutdown webserver2
+			5. virsh autostart webserver 
+			6. other virsh commands:
+				1. reboot
+				2. shutdown
+				3. save 
+				4. restore
+	20. D5:Containerized services offer Linux administrators flexible options and often increased performance. Perform the following tasks with docker containers.
 		1. Stop the docker container 'docker1'
 		2. Delete the docker container 'docker2'
 		3. Create a docker container 'docker3' ensuring it automatically restarts when the system reboots
 		4. map port 80 on the container to 8080 on the local machine and use the latest version of nginx
 		1. Answer: 
-			1. .
-	22. D5:Logical volumes can enhance the file system capabilities of a Linux VM. Understanding and being able to manipulate them is critical to being a successful Linux administrator.  After attaching a 10gb disk for additional storage, perform the folling tasks:  NOTE: You will need to add an additional disk to your VM; however, the exam will specify which disk to use.
+			1. Answers: these aren't setup and therefore you'll need to play with them at a later time;  just use the following commands:
+				1. docker container create --name docker01 -p 80:8080 --restart unless-stopped nginx
+					1. docker02 81:8081
+					2. start 01 & 02
+				2. docker container list
+				3. docker container stop docker01
+				4. docker container kill docker02
+				5. docker container rm docker02
+			3. docker container create --name docker03 -p 80:8080 --restart unless-stopped nginx
+			4. other commands for playing:
+				1. docker container start docker03
+				2. docker ps; or
+				3. docker container list
+	21. D5:Logical volumes can enhance the file system capabilities of a Linux VM. Understanding and being able to manipulate them is critical to being a successful Linux administrator.  After attaching a 10gb disk for additional storage, perform the folling tasks:  NOTE: You will need to add an additional disk to your VM; however, the exam will specify which disk to use.
 		1. Create two partitions, each with 2GB of storage
 		2. Create a volume group name ‘vg01’ from the two partitions
 		3. Create a logical volume named ‘lv01’ with the following attributes
@@ -269,19 +316,71 @@
 			3. Give it a label ‘lv01’
 			4. Mount it persistently to /mnt
 		1. Answer: 
-			1. .
-	23. D6:The following tasks may be achieved using the user student’s sudo privileges:
+			1. Create the partitions
+					1. fdisk --help
+						1. fdisk -l
+						2. fdisk /dev/xvdb
+							1. m
+							2. n - p - 1 -  - 2G  x 2
+							3. p - w
+					2. lsblk don't do this section
+						1. df -kh [to check if drive is mounted] 
+						2. mkfs --type ext3 /dev/nvme1n1
+						3. or mkfs.ext3 /dev/nvme1n1
+						4. mount /dev/nvme1n1 /mnt [don't mount the disk]
+						5. df -kh [confirm disk mount]
+						6. blkid [grab the uuid no ""]
+						7. vi /etc/fstab [UUID=ef25b663-d33e-479e-b90e-759287fb7dbc /mnt  ext3  defaults,noatime,nofail  1  0]
+					4. fdisk -l [disk /dev/nvme1n1  has the biggest space; plus up to 5 loops]
+					5. fdisk /dev/nvme1n1
+						1. m - do the following twice 
+						2. n [for add a new partition]
+						3. p [for primary]
+						4. 1 [for partition #]
+						5. [leave 1st blank as this is the start or the partition]
+						6. +2G [extend the partition 2Gbs]
+						7. p [print to confirm partitions]
+						8. w [this will write/save your partitions]
+				3. fdisk -l /dev/nvme1n1
+				4. lsblk [shows the mounted drive plus the partitions]
+					1. nvme1n1p1
+					2. nvme1n1p2
+				5. create physical volumes
+					1. pvcreate /dev/nvme1n1p1 /dev/nvme1n1p2
+					2. pvscan
+					3. pvdisplay
+				6. create volume group
+					1. vgcreate vg01 /dev/nvme1n1p1 /dev/nvme1n1p2
+					2. vgdisplay
+				7. create logical volume
+					1. lvcreate --help
+					2. lvcreate --size 2g --name lv01 vg01
+					3. lvdisplay
+					4. mkfs.ext3 /dev/vg01/lv01
+				8. mount /dev/vg01/lv01 /mnt
+					1. blkid
+					2. vi /etc/fstab
+					3. UUID=5abcf53d-1de6-4ce5-9095-79574eaed6f2 /mnt  ext3  defaults 0 2
+				9. https://www.thegeekstuff.com/2010/08/how-to-create-lvm/
+	22. D6:The following tasks may be achieved using the user ssm-user’s sudo privileges:
 		1. Temporarily mount the filesystem available on /dev/xvdf2 under /mnt/backup/.
 		2. Decompress and unarchive the /mnt/backup/backup-primary.tar.bz2 archive into /opt/. This should result in a new directory (created from the archive itself) named /opt/proddata/.
-		3. Answer: 
-			1. .
-		4. .
-	24. D6:Configure the swap partition /dev/xvdi1 so that it does not* become attached automatically at boot time.
+		3. Answer: /opt/SAMPLE0001.tar.bz2
+			1. su - ssm-user
+			2. lsblk
+			3. mkdir /mnt/backup
+			4. mount -t ext3 /dev/xvdb1 /mnt/backup
+			5. xz -d /opt/SAMPLE001.tar.bz2 or use bzip2
+			6. tar -kxf /opt/SAMPLE0001.tar 
+	23. D6:Configure the swap partition /dev/xvdi1 so that it does not* become attached automatically at boot time.
 		1. Answer: 
-			1. .
-	25. D6:Configure the system so that the existing filesystem that corresponds to /staging gets persistently mounted in read-only mode.
+			1. fallocate -l 1G /swapfile
+			2. mkswap /swapfile
+			3. swapon /swapfile
+			4. swapon --show
+	24. D6:Configure the system so that the existing filesystem that corresponds to /staging gets persistently mounted in read-only mode.
 		1. Answer:
-			1. .
+			1. mount -r /dev/vg01/lv01 /mnt/backup
 - Linux Foundation Prac Exam: run the setup.sh + 1x5gebs + 2 x 4gebs
 	1. As the Linux system administration of AVC company you have been getting complaints about the performance of some of the Linux servers used by your development team.  After investigating the source of these performance issues you realise the number of running processes started by users is too high.
 		1. Set a limit on the number of processes users of the 'developer' group can start to 20.
