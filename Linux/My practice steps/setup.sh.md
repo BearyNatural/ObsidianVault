@@ -28,10 +28,14 @@ touch /usr/local/links/hardlinkme.txt
 touch /usr/local/links/softlinkme.txt
 mkdir -p /usr/local/links/hardlinks/
 touch /usr/local/links/hardlinks/linknum
-touch /opt/file1.txt
-touch /opt/file2.txt
-touch /opt/file2.txt
-tar -cvf /opt/SAMPLE001.zip /opt/file1.txt /opt/file2.txt /opt/file3.txt
+touch /file1.txt
+touch /file2.txt
+touch /file3.txt
+tar -cvf /opt/SAMPLE001.zip /file1.txt /file2.txt /file3.txt
+docker container create --name docker1 -p 81:8081 nginx
+docker container create --name docker2 -p 82:8082 nginx
+docker container start docker1
+docker container start docker2
 
 mkdir -p /usr/backups
 mkdir -p /usr/archive
@@ -41,6 +45,7 @@ touch /srv/dns/dns-service
 
 mkdir /raid
 touch /usr/raid-config
+mkdir /mnt/backup
 
 groupadd contractors
 groupadd employees
@@ -64,6 +69,10 @@ chmod 2000 /home/example/file8
 chmod 2000 /home/example/file6
 fallocate -l 126M /home/example/file10
 fallocate -l 512k /home/example/file11
+useradd -m -d /tmp/projectadmin projectadmin 
+useradd devel
+apt install zsh -y
+chsh -s $(which zsh) devel
 
 mkdir -p /home/student/textreferences/
 
@@ -90,18 +99,24 @@ touch /srv/SAMPLE002/file1
 touch /srv/SAMPLE002/file2
 touch /srv/SAMPLE002/file3
 touch /srv/SAMPLE002/file4
-touch /srv/SAMPLE002/file5
-touch /srv/SAMPLE002/file6
+touch -t 8001031305 /srv/SAMPLE002/file5
+touch -t 8001031305 /srv/SAMPLE002/file6
 touch /srv/SAMPLE002/file7
 mkdir -p /srv/SAMPLE002/dir1
+mkdir -p /srv/SAMPLE002/dir2
+mkdir -p /srv/SAMPLE002/dir3
 touch /srv/SAMPLE002/file1.tar
 touch /srv/SAMPLE002/file2.tar
 chmod 777 /srv/SAMPLE002/file1
 chmod 777 /srv/SAMPLE002/file2
+mkdir -p /opt/SAMPLE002
+echo 'this has already been created for an exercise, this line should be removed in successful completion of said exercise' > /opt/SAMPLE002/toBeCrompressed.txt
 
 mkdir -p /usr/sample/
 touch /usr/sample/example.txt
 
+mkdir -p /staging
+
 echo "Linux is cool" >> /usr/sample/example.txt
 echo "It is cool to know Linux" >> /usr/sample/example.txt
 echo "Wow this line has Linux in the middle" >> /usr/sample/example.txt
@@ -212,6 +227,9 @@ echo "It is cool to know Linux" >> /usr/sample/example.txt
 echo "Wow this line has Linux in the middle" >> /usr/sample/example.txt
 echo "Wow this line has Linux and yay" >> /usr/sample/example.txt
 echo "This is the last line yay" >> /usr/sample/example.txt
+cp /usr/sample/example.txt /srv/SAMPLE002/example.txt
+cp /usr/sample/example.txt /srv/SAMPLE002/example1.txt
+cp /usr/sample/example.txt /srv/SAMPLE002/example2.txt
 
 mkdir -p /usr/diff/
 touch /usr/diff/file1

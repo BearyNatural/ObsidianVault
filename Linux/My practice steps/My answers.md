@@ -118,14 +118,13 @@
 	41. ![[Pasted image 20230213170451.png]]
 		1. Answer: 
 			1. 
-3. https://ozguryarikkas.medium.com/lfcs-linux-foundation-system-administrator-exam-study-guide-with-exercises-part-1-d9ddc9efc39f similar as LFCS prac test
+3. https://ozguryarikkas.medium.com/lfcs-linux-foundation-system-administrator-exam-study-guide-with-exercises-part-1-d9ddc9efc39f similar as LFCS prac test run the setup.sh  1x10g + 2x5g
 	1. D1:q18. Open the file under  /home/student/textreferences/editme.txt and  complete the following tasks:  
-		1. Move line 7777 to line 1.  
-		2. Remove line 7000.  
-		3. Replace every occurrence of the word Earth shown with  an uppercase E, with the word Globe.  
-		4. Remove line 7001 (this line will be removed)
-		5. Add a new line at the very end of the document that  contains Auctores Varii.
-		6. Answer: 
+		1. Move line 7777 to line 1.    
+		2. Replace every occurrence of the word Earth shown with  an uppercase E, with the word Globe.  
+		3. Remove line 7001 (this line will be removed)
+		4. Add a new line at the very end of the document that  contains Auctores Varii.
+		5. Answer: 
 			1. cd /home/student/textreferences/
 			2. ll 
 			3. vi editme.txt
@@ -142,10 +141,9 @@
 		4. Compress the tar archive file /opt/SAMPLE0001.tar  using the xz compression algorithm  
 			Make sure that the uncompressed archive file  /opt/SAMPLE0001.tar is not removed after creating the  compressed versions of the archive file!
 		1. Answer: 
-			1. [ ] cd /opt/
+			1. cd /opt/
 			2. rm -r file*.txt
-			3. tar -xf SAMPLE001.zip
-				1. 
+			3. tar -xf SAMPLE001.zip 
 			4. mv file*.txt /opt/SAMPLE001
 			5. tar -cvf SAMPLE0001.tar /opt/SAMPLE001/
 			6. bzip2 -zk SAMPLE0001.tar
@@ -161,16 +159,17 @@
 			3. find . -type f -executable -delete
 			4. find . -type f -mtime 30 -delete
 			5. find . -type f -empty -delete
-			6. find . -type f -name '^.tar' >/opt/SAMPLE002/toBeCompressed.txt
+			6. find /srv/SAMPLE002/ -type f -name '^.tar' >/opt/SAMPLE002/toBeCompressed.txt [must show relative path - READ THE INSTRUCTIONS CAREFULLY]
 			7. cat /opt/SAMPLE002/toBeCompressed.txt
 	4. D1:Hard and soft links offer a wide variety of options for System administrators. Perform the following tasks with system links:
 		1. Create a hard link to /usr/local/links/hardlinkme.txt named 'hardlink1'
 		2. Create a soft link to /usr/local/links/softlinkme.txt named 'softlink1'
 		3. Write the path that 'softlink1' in /usr/local/links resolves to softlink2
 		4. Answer:
-			1. ln /usr/local/lins/hardlinkme.txt hardlink1.txt
-			2. ln -s /usr/local/links/softlinkme.txt softlink1.txt
-			3. ls -lrt | grep softlink1 >softlink2.txt
+			1. ch /home/ssm-user
+			2. ln /usr/local/lins/hardlinkme.txt hardlink1
+			3. ln -s /usr/local/links/softlinkme.txt softlink1
+			4. ls -lrt | grep softlink1 | awk '{print $9,$10,$11}' >softlink2
 	5. D2:Create a bash shell script named certscript.sh under /home/student/apps/
 		1. 1. Make sure the script can be invoked as ./certscript.sh
 		2. The first line of output from the script should consist of the name of the user who invoked it
@@ -188,7 +187,7 @@
 	7. D2:Create a cron job that kills all processes named scan_filesystem which is owned by root, every minute.
 		3. Answer: 
 			1. vi script1.sh
-				1. killall -1 apache2
+				1. killall -1 -u root scan_filesystem
 			2. chmod u+x script1.sh
 			3. crontab -e
 			4. */1 * * * * ./script1.sh     *
@@ -202,7 +201,7 @@
 			2. groupadd computestream
 			3. mkdir -p /exam/computestream
 			4. ll /exam/
-			5. chown root:computesream -R /exam/computestream/
+			5. chgrp computesream -R /exam/computestream/
 			6. chmod -R g+w /exam/computestream
 			7. ll /exam/
 	9. D3:Create a candidate user account with the password cert456.  Modify the sudo configuration to let the candidate account  access root privileges with no password prompt.
@@ -210,20 +209,26 @@
 			1. useradd candidate -p cert456
 			2. vi /etc/sudoers
 			3. candidate ALL=(ALL) NOPASSWD:ALL
+			4. to test
+				1. su - candidate
+				2. sudo useradd test
+				3. id test
+				4. sudo userdel test
 	10.  D3:Configure the system so that an empty NEWS file is automatically created in the home directory of any new user.
 		1. Answer: 
 			1. touch /etc/skel/news [do this 1st as this will automatically add to each new users home directory]
 	11. D3:Create a new user account with the following attributes:
 		3. Username is harry.
 		4. Password is magic.
-		5. This user’s home directory is defined as /home/school/harry/.
+		5. This user’s home directory is defined as /home/school/harry/. [remember this does spit out errors - check before you change something doesn't mean it wasn't done as requested it might just be having a whinge!]
 		6. This new user is a member of the existing students group.
-		7. The /home/school/harry/binaries/ directory is part of the PATH variable.[do not do this one]
+		7. The /home/school/harry/binaries/ directory is part of the PATH variable. 
 		8. Answer: 
-			1. useradd harry -p magic -m -d /home/school/harry [error message may pop up double check it is done]
-			2. ll /home/school/harry
-			3. usermod -aG students harry
-			4. id harry 
+			1. useradd -p magic -m -d /home/school/harry harry [error message may pop up double check it is done]
+			3. ll /home/school/harry
+			4. usermod -aG students harry
+			5. id harry 
+			7. usermod -m -d /home/school/harry/binaries harry
 	12. D3:Create a user account with username sysadmin with the following attributes:
 		1. Use a password of science.
 		2. This user’s home directory is defined as /sysadmin/.
@@ -239,9 +244,14 @@
 		1. Answer:
 			1. vi /etc/sudoers
 			2. $user ALL=(ALL) NOPASSWD:/bin/last
+			3. to test
+				1. useradd test
+				2. su - test
+				3. useradd moretest [this should be permission denied]
+				4. last [should show up list]
 	14. D3:Correct the projectadmin user account so that logins are possible using the password _onetime43_. Set the home directory to /home/projectadmin.
 		1. Answer:
-			1. usermod -p onetime43 -d /home/projectadmin projectadmin 
+			1. usermod -p onetime43 -m -d /home/projectadmin projectadmin 
 	15. D3:Alter the devel user account so that it can log into the system with a working bash shell environment.
 		1. Answer:
 			1. chsh -s $(which bash) devel
@@ -251,7 +261,7 @@
 		3. Answer: 
 			1. cat /etc/services | grep 2605 | awk '{print $1}' > /home/student/port-2605.txt
 			2. cat /home/student/port-2605.txt
-			3. cat /etc/services | grep tcp | grep -i imap | aws '{print $2}' | sed 's/\/.*//g' > /home/student/imap-ports.txt  
+			3. cat /etc/services | grep tcp | grep -i imap | awk '{print $2}' | sed 's/\/.*//g' > /home/student/imap-ports.txt  v
 	17. D5:As a Linux System administrater you will often be tasked with recording and making changes to networking configuration of VMs.  
 		1. Write the contents of the routing table to a file in /usr/local/networking/routing.txt 
 		2. Answer: 
@@ -294,20 +304,17 @@
 		3. Create a docker container 'docker3' ensuring it automatically restarts when the system reboots
 		4. map port 80 on the container to 8080 on the local machine and use the latest version of nginx
 		1. Answer: 
-			1. Answers: these aren't setup and therefore you'll need to play with them at a later time;  just use the following commands:
-				1. docker container create --name docker01 -p 80:8080 --restart unless-stopped nginx
-					1. docker02 81:8081
-					2. start 01 & 02
-				2. docker container list
-				3. docker container stop docker01
-				4. docker container kill docker02
-				5. docker container rm docker02
-			3. docker container create --name docker03 -p 80:8080 --restart unless-stopped nginx
-			4. other commands for playing:
-				1. docker container start docker03
-				2. docker ps; or
-				3. docker container list
-	21. D5:Logical volumes can enhance the file system capabilities of a Linux VM. Understanding and being able to manipulate them is critical to being a successful Linux administrator.  After attaching a 10gb disk for additional storage, perform the folling tasks:  NOTE: You will need to add an additional disk to your VM; however, the exam will specify which disk to use.
+			1. Answers: 
+				1. docker container list 
+				2. docker container stop docker01
+				3. docker container stop docker02
+				4. docker container rm docker02 
+				5. docker container create --name docker03 -p 80:8080 --restart unless-stopped nginx
+				6. other commands for playing:
+					1. docker container start docker03
+					2. docker ps; or
+					3. docker container list
+	21. D5:Logical volumes can enhance the file system capabilities of a Linux VM. Understanding and being able to manipulate them is critical to being a successful Linux administrator.  After attaching a 10gb disk for additional storage, perform the following tasks:  
 		1. Create two partitions, each with 2GB of storage
 		2. Create a volume group name ‘vg01’ from the two partitions
 		3. Create a logical volume named ‘lv01’ with the following attributes
@@ -362,17 +369,15 @@
 					2. vi /etc/fstab
 					3. UUID=5abcf53d-1de6-4ce5-9095-79574eaed6f2 /mnt  ext3  defaults 0 2
 				9. https://www.thegeekstuff.com/2010/08/how-to-create-lvm/
-	22. D6:The following tasks may be achieved using the user ssm-user’s sudo privileges:
-		1. Temporarily mount the filesystem available on /dev/xvdf2 under /mnt/backup/.
-		2. Decompress and unarchive the /mnt/backup/backup-primary.tar.bz2 archive into /opt/. This should result in a new directory (created from the archive itself) named /opt/proddata/.
-		3. Answer: /opt/SAMPLE0001.tar.bz2
-			1. su - ssm-user
-			2. lsblk
-			3. mkdir /mnt/backup
-			4. mount -t ext3 /dev/xvdb1 /mnt/backup
-			5. xz -d /opt/SAMPLE001.tar.bz2 or use bzip2
-			6. tar -kxf /opt/SAMPLE0001.tar 
-	23. D6:Configure the swap partition /dev/xvdi1 so that it does not* become attached automatically at boot time.
+	22. D6:Complete the following tasks:
+		1. Temporarily mount the filesystem available on /dev/(additionaldrive) under /mnt/backup/. NOTE: setup the filesystem with ext4, after mounting cp /opt/SAMPLE0001.tar.bz2 /mnt/backup/backup-primary.tar.bz2
+		2. Decompress and unarchive the /mnt/backup/backup-primary.tar.bz2 archive into /opt/. Pretend this should result in a new directory (created from the archive itself) named /SAMPLE002/
+		3. Answer: 
+			1. lsblk 
+			2. mkdir /mnt/backup
+			3. xz -d /opt/SAMPLE001.tar.bz2 or use bzip2
+			4. tar -xf /opt/SAMPLE0001.tar 
+	23. D6:Configure the swap partition on new drive so that it does not* become attached automatically at boot time.
 		1. Answer: 
 			1. fallocate -l 1G /swapfile
 			2. mkswap /swapfile
@@ -381,7 +386,7 @@
 	24. D6:Configure the system so that the existing filesystem that corresponds to /staging gets persistently mounted in read-only mode.
 		1. Answer:
 			1. mount -r /dev/vg01/lv01 /mnt/backup
-- Linux Foundation Prac Exam: run the setup.sh + 1x5gebs + 2 x 4gebs
+- Linux Foundation Prac Exam: run the setup.sh + 1x10gebs + 3 x 4gebs
 	1. As the Linux system administration of AVC company you have been getting complaints about the performance of some of the Linux servers used by your development team.  After investigating the source of these performance issues you realise the number of running processes started by users is too high.
 		1. Set a limit on the number of processes users of the 'developer' group can start to 20.
 		2. Ensure that user 'Bob' who is a member of the 'developer' group is not impacted by these limits.
