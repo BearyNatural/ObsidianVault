@@ -1,9 +1,6 @@
-https://command-center.support.aws.a2z.com/case-console#/cases/11144921721/correspondences/ekko:us-east-1:63273696-4976-4445-9b75-662a4552144f
-11144921721
-
 To summarize, we could see that there were many requests from Bots which would increase the number of calls to database.  As you might already know, WordPress database includes posts, pages, comments, categories, tags, custom fields, users, and other WordPress settings are stored in Database(in this case RDS database). When bots, accesses different pages in the website, wordpress creates connections to database. I suggested contacting your team who enabled bots and disable bots for now. 
 
-As part of the investigation, I went ahead and checked the Classic Load Balancer LBDiario-1359243828.us-east-1.elb.amazonaws.com  and could see that SurgeQueueLength[1] is high. This is the total number of requests (HTTP listener) or connections (TCP listener) that are pending routing to a healthy instance. While there was surge queue, the apache was still processing requests from CLB. To confirm this, we checked the apache logs and could see that there were around 187k calls from bots in past ~15 hours. Each of these calls can initiate database connection which in turn increases db load. 
+As part of the investigation, I went ahead and checked the Classic Load Balancer LBDiario-???.us-east-1.elb.amazonaws.com  and could see that SurgeQueueLength[1] is high. This is the total number of requests (HTTP listener) or connections (TCP listener) that are pending routing to a healthy instance. While there was surge queue, the apache was still processing requests from CLB. To confirm this, we checked the apache logs and could see that there were around 187k calls from bots in past ~15 hours. Each of these calls can initiate database connection which in turn increases db load. 
 
 While on SSH session, we checked the following:
 --
@@ -66,7 +63,7 @@ I hope this helps. It was a pleasure chatting with you. Please feel free to cont
 
 
 References:
-[1] https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#metricsV2:graph=~(metrics~(~(~'AWS*2fELB~'SurgeQueueLength~'LoadBalancerName~'LBDiario))~view~'timeSeries~stacked~false~region~'us-east-1~start~'-PT12H~end~'P0D~stat~'Sum~period~300);query=~'*7bAWS*2fELB*2cLoadBalancerName*7d 
+[1] https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#metricsV2:graph=~(metrics~(~(~'AWS*2fELB~'SurgeQueueLength~'LoadBalancerName~'LBDiario))~view~'timeSeries~stacked~false~region~'us-east-1~start~'-PT12H~end~'P0D~stat~'Sum~period~300);query=~'*7bAS*2fELB*2cLoadBalancerName*7d 
 [2] https://aws.amazon.com/premiumsupport/knowledge-center/elb-capture-client-ip-addresses/ 
 [3] https://www.searchenginejournal.com/prevent-bot-crawling/450430/ 
 [4] https://support.google.com/news/publisher-center/answer/9605477?hl=en#:~:text=%2C%20nofollow%22%3E.-,Prevent%20specific%20articles%20on%20your%20site%20from%20appearing%20in%20Google,%22noindex%2C%20nofollow%22%3E 
