@@ -195,7 +195,7 @@
 		1. Create a group called students.  
 		2. Create the computestream group.
 		3. Create a computestream folder in /exam/.
-		4. Make the compute stream group the owner of the /exam/computestream folder.
+		4. Make the computestream group the owner of the /exam/computestream folder.
 		5. Answer:
 			1. groupadd students
 			2. groupadd computestream
@@ -265,7 +265,7 @@
 	17. D5:As a Linux System administrater you will often be tasked with recording and making changes to networking configuration of VMs.  
 		1. Write the contents of the routing table to a file in /usr/local/networking/routing.txt 
 		2. Answer: 
-			1. .route -n > /usr/local/networking/routing.txt
+			1. .route -n | tail -n 5 > /usr/local/networking/routing.txt
 			2. cat /usr/local/networking/routing.txt
 	18.  D5:As a Linux System administrator you will often be tasked with maintaining webservers.  Sometimes you will want to change the default behavior of the apache2 service to accommodate your needs.
 		1. Update the port that the apache2 service listens on from 80 to 1990.
@@ -279,7 +279,7 @@
 			6. systemctl restart apache2
 			7. systemctl status apache2
 			8. netstat -lnp | grep apache2
-	19.  D5:As a Linux System administrator you will often make changes to Virtual Machines running in your environment.  NOTE you will need to install libvirt libvirt-bin qemu qemu-kvm virt-install virt-manager wget and create the webservers first with but the exam seems to test your ability to modify runnig webservers.  see q4 for further instructions.
+	19.  D5:As a Linux System administrator you will often make changes to Virtual Machines running in your environment.  NOTE you will need to install libvirt libvirt-bin qemu qemu-kvm virt-install virt-manager wget and create the webservers first with but the exam seems to test your ability to modify runnig webservers.  see unable to replicate this yet so write the commands as if they were set up if you are getting 'error: failed to get domain 'webserver'' then you have the correct command.
 		1. Start webserver
 		2. Stop webserver2
 		3. Ensure that webserver automatically starts when the server restarts
@@ -371,7 +371,7 @@
 				9. https://www.thegeekstuff.com/2010/08/how-to-create-lvm/
 	22. D6:Complete the following tasks:
 		1. Temporarily mount the filesystem available on /dev/(additionaldrive) under /mnt/backup/. NOTE: setup the filesystem with ext4, after mounting cp /opt/SAMPLE0001.tar.bz2 /mnt/backup/backup-primary.tar.bz2
-		2. Decompress and unarchive the /mnt/backup/backup-primary.tar.bz2 archive into /opt/. Pretend this should result in a new directory (created from the archive itself) named /SAMPLE002/
+		2. Decompress and unarchive the /mnt/backup/backup-primary.tar.bz2 archive into /opt/. This should result in a new directory (created from the archive itself) named /SAMPLE002/
 		3. Answer: 
 			1. lsblk 
 			2. mkdir /mnt/backup
@@ -379,13 +379,20 @@
 			4. tar -xf /opt/SAMPLE0001.tar 
 	23. D6:Configure the swap partition on new drive so that it does not* become attached automatically at boot time.
 		1. Answer: 
-			1. fallocate -l 1G /swapfile
-			2. mkswap /swapfile
-			3. swapon /swapfile
-			4. swapon --show
+			1. fdisk /dev/disk [if using additional drive]
+				1. n - p - # -  - +1G [set partition]
+				2. t - 82 [to change the type to swap]
+				3. p - w [to see the changes and to write the changes]
+				4. other ways:
+					1. fallocate -l 1G /swapfile [if using system ebs]
+			3. mkswap /swapfile
+			4. swapon /swapfile
+			5. swapon --show
 	24. D6:Configure the system so that the existing filesystem that corresponds to /staging gets persistently mounted in read-only mode.
 		1. Answer:
-			1. mount -r /dev/vg01/lv01 /mnt/backup
+			1. mount -r /dev/xvdd /staging
+			2. vi /etc/fstab
+				1. UUID= /staging ext4 defaults 0 2
 - Linux Foundation Prac Exam: run the setup.sh + 1x10gebs + 3 x 4gebs
 	1. As the Linux system administration of AVC company you have been getting complaints about the performance of some of the Linux servers used by your development team.  After investigating the source of these performance issues you realise the number of running processes started by users is too high.
 		1. Set a limit on the number of processes users of the 'developer' group can start to 20.

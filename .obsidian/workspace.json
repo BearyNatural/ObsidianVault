@@ -4,22 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "0f2cf6cc00c02872",
+        "id": "dfbb0ed843521f9c",
         "type": "tabs",
         "children": [
           {
-            "id": "3b810f92cb018681",
+            "id": "6b7da02ea51c303b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "VSCode CLI.md",
+                "file": "Linux/LFCS - Sander van Vugt/Lesson 35 Managing Remote File Shares.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6c122b660bde6ac5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux/LFCS - Sander van Vugt/Lesson 34 - Configuring DNS.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -77,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "VSCode CLI.md",
+                "file": "Linux/LFCS - Sander van Vugt/Lesson 34 - Configuring DNS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,17 +117,17 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "3b810f92cb018681",
+  "active": "ade185c4d7a39dc1",
   "lastOpenFiles": [
-    "KodeKloud/20230120 - Linux NTP Setup.md",
-    "KodeKloud/C-20221214 -  Create a Linux User with non-interactive shell.md",
-    "KodeKloud/20221219 - Linux SSH Authentication.md",
-    "Linux/Commands in Class.md",
-    "Linux/aCloudGuru/Untitled 1.md",
-    "Linux/aCloudGuru/Learn Linux by Doing.md",
-    "KodeKloud/C-20221213 - Timezone miss match.md",
-    "KodeKloud/C-20221216 -  Linux File Permissions.md",
-    "CloudFormation/Cloudformation & SAM.md",
-    "Linux/Kubernetes.md"
+    "Linux/LFCS - Sander van Vugt/Lesson 33 - Configuring FTP Services.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 32 Managing Web Services.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 31 - Configuring SSH.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 36 Configuring a Database Server.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 35 Managing Remote File Shares.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 34 - Configuring DNS.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 24 Configuring a Firewall.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 30 Managing User Quota.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 29 Managing Software RAID.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 28 - Managing LVM Logical Volumes.md"
   ]
 }
