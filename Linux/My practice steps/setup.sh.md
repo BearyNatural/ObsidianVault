@@ -28,15 +28,16 @@ touch /usr/local/links/hardlinkme.txt
 touch /usr/local/links/softlinkme.txt
 mkdir -p /usr/local/links/hardlinks/
 touch /usr/local/links/hardlinks/linknum
-touch /file1.txt
-touch /file2.txt
-touch /file3.txt
+touch /file{1..5}.txt
 tar -cvf /opt/SAMPLE001.zip /file1.txt /file2.txt /file3.txt
 docker container create --name docker1 -p 81:8081 nginx
 docker container create --name docker2 -p 82:8082 nginx
 docker container start docker1
 docker container start docker2
+echo '-----BEGIN RSA PRIVATE KEY-----
 
+-----END RSA PRIVATE KEY-----' > /root/RemoteLinuxKey.pem
+chmod 0400 /root/RemoteLinuxKey.pem
 mkdir -p /usr/backups
 mkdir -p /usr/archive
 mkdir -p /srv/dns/

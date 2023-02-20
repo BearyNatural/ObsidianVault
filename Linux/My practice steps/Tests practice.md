@@ -121,7 +121,7 @@
 3. SAMPLE EXAM: https://ozguryarikkas.medium.com/lfcs-linux-foundation-system-administrator-exam-study-guide-with-exercises-part-1-d9ddc9efc39f same as LFCS prac test
 	1. D1:q18. Open the file under  /home/student/textreferences/editme.txt and  complete the following tasks:  
 		1. Move line 7777 to line 1.  
-		2. Remove line 7000.  
+		2. Remove line 7001 (this line will be removed) 
 		3. Replace every occurrence of the word Earth shown with  an uppercase E, with the word Globe.  
 		4. Add a new line at the very end of the document that  contains Auctores Varii.
 		1. Answer: 
@@ -144,8 +144,7 @@
 	4. D1:Hard and soft links offer a wide variety of options for System administrators. Perform the following tasks with system links:
 		1. Create a hard link to /usr/local/links/hardlinkme.txt named 'hardlink1'
 		2. Create a soft link to /usr/local/links/softlinkme.txt named 'softlink1'
-		3. Write the path that 'softlink2' in /usr/local/links resolves to
-		4. Verify which file in /usr/local/links/hardlinks/ had the most hardlinks to it and write the number of hard links to a file called 'linknum' in /usr/local/links/hardlinks/
+		3. Write the path that 'softlink1' in /usr/local/links resolves to
 		5. Answer:
 			1. .
 	5. D2:Create a bash shell script named certscript.sh under /home/student/apps/
@@ -154,28 +153,26 @@
 		3. The second line of output should contain the IP address of the default gateway.
 		4. Answer: 
 			1. .
-	6. D2:Install the tmux package on your system.
+	6. D2:Install the dnsmasq package on your system.
 		1. Answer:
 			1. .
-	7. D2:Alter the init boot sequence so that the rc.local or boot.local script (depending on the distribution that you have selected) is executed at boot time.
-		1. Answer:
-			1. .
-	8. D2:Create a cron job that kills all processes named scan_filesystem which is owned by root, every minute.
+	7. D2:Create a cron job that kills all processes named scan_filesystem which is owned by root, every minute.
 		1. Answer: 
 			1. .
-	9. D3:Linux administrators are responsible for the creation, deletion, and the modification of groups, as well as the group membership.  Complete the following tasks to demonstrate your ability to create and manage groups and group membership:
-		1. Create the computestream group.
-		2. Create a computestream folder in /exam/.
-		3. Make the compute stream group the owner of the /exam/computestream folder.
-		4. Answer:
+	8. D3:Linux administrators are responsible for the creation, deletion, and the modification of groups, as well as the group membership.  Complete the following tasks to demonstrate your ability to create and manage groups and group membership:
+		1. Create a group called students.  
+		2. Create the computestream group.
+		3. Create a computestream folder in /exam/.
+		4. Make the compute stream group the owner of the /exam/computestream folder.
+		5. Answer:
 			1. .
-	10. D3:Create a candidate user account with the password cert456.  Modify the sudo configuration to let the candidate account  access root privileges with no password prompt.
+	9. D3:Create a candidate user account with the password cert456.  Modify the sudo configuration to let the candidate account  access root privileges with no password prompt.
 		1. Answer: 
 			1. .
-	11.  D3:Configure the system so that an empty NEWS file is automatically created in the home directory of any new user.
+	10.  D3:Configure the system so that an empty NEWS file is automatically created in the home directory of any new user.
 		1. Answer: 
 			1. .
-	12. D3:Create a new user account with the following attributes:
+	11. D3:Create a new user account with the following attributes:
 		3. Username is harry.
 		4. Password is magic.
 		5. This user’s home directory is defined as /home/school/harry/.
@@ -183,54 +180,50 @@
 		7. The /home/school/harry/binaries/ directory is part of the PATH variable.
 		8. Answer: 
 			1. .
-	13. D3:Create a group called students.  Create a user account with username sysadmin with the following attributes:
+	12. D3:Create a user account with username sysadmin with the following attributes:
 		1. Use a password of science.
 		2. This user’s home directory is defined as /sysadmin/.
 		3. sysadmin has sudo privileges and will not be prompted for a password when using the sudo command.
 		4. The default shell for this user is zsh.
 		5. Answer:
 			1. .
-	14. D3:Ensure that all users can invoke the last command and access a list of users who previously logged in.
+	13. D3:Ensure that all users can invoke the last command and access a list of users who previously logged in.
 		1. Answer:
 			1. .
-	15. D3:Correct the projectadmin user account so that logins are possible using the password _onetime43_. Set the home directory to /home/projectadmin.
+	14. D3:Correct the projectadmin user account so that logins are possible using the password _onetime43_. Set the home directory to /home/projectadmin.
 		1. Answer:
 			1. .
-	16. D3:Alter the devel user account so that it can log into the system with a working bash shell environment.
+	15. D3:Alter the devel user account so that it can log into the system with a working bash shell environment.
 		1. Answer:
 			1. /
-	17.  D4:Find ports under /etc/services:
+	16.  D4:Find ports under /etc/services:
 		1. Find the name of the service which uses TCP port 2605, as documented in /etc/services, and write the service name to the file /home/student/port-2605.txt.
 		2. Find all the ports used for TCP services IMAP3 and IMAPS, again as documented in /etc/services, and write those port numbers to the file /home/student/imap-ports.txt
 		3. Answer: 
-			1. .
-		4. .
-	18.  D4:Find the name of the service which uses TCP port 2605, as documented in /etc/services, and write the service name to the file /home/student/port-2605.txt. Find all of the ports used for TCP services IMAP3 and IMAPS, again as documented in /etc/services, and write those port numbers to the file /home/student/imap-ports.txt.
-		1. Answer: 
-			1. .
-	19.  D5:As a Linux System administrater you will often be tasked with recording and making changes to networking configuration of VMs.  
+			1. ..
+	17.  D5:As a Linux System administrater you will often be tasked with recording and making changes to networking configuration of VMs.  
 		1. Write the contents of the routing table to a file in /usr/local/networking/routing.txt 
 		2. Answer: 
 			1. .
-	20.  D5:As a Linux System administrator you will often be tasked with maintaining webservers.  Sometimes you will want to change the default behavior of the apache2 service to accommodate your needs.
+	18.  D5:As a Linux System administrator you will often be tasked with maintaining webservers.  Sometimes you will want to change the default behavior of the apache2 service to accommodate your needs.
 		1. Update the port that the apache2 service listens on from 80 to 1990.
 		2. Ensure these changes are persistent
 		1. Answer: 
 			1. .
-	21.  D5:As a Linux System administrator you will often make changes to Virtual Machines running in your environment.  NOTE you will need to install libvirt libvirt-bin qemu qemu-kvm virt-install virt-manager wget and create the webservers first with but the exam seems to test your ability to modify runnig webservers.  see q4 for further instructions.
+	19.  D5:As a Linux System administrator you will often make changes to Virtual Machines running in your environment.  NOTE you will need to install libvirt libvirt-bin qemu qemu-kvm virt-install virt-manager wget and create the webservers first with but the exam seems to test your ability to modify runnig webservers.  see q4 for further instructions.
 		1. Start webserver
 		2. Stop webserver2
 		3. Ensure that webserver automatically starts when the server restarts
 		1. Answer: 
 			1. .
-	22. D5:Containerized services offer Linux administrators flexible options and often increased performance. Perform the following tasks with docker containers.
+	20. D5:Containerized services offer Linux administrators flexible options and often increased performance. Perform the following tasks with docker containers.
 		1. Stop the docker container 'docker1'
 		2. Delete the docker container 'docker2'
 		3. Create a docker container 'docker3' ensuring it automatically restarts when the system reboots
 		4. map port 80 on the container to 8080 on the local machine and use the latest version of nginx
 		1. Answer: 
 			1. .
-	23. D5:Logical volumes can enhance the file system capabilities of a Linux VM. Understanding and being able to manipulate them is critical to being a successful Linux administrator.  After attaching a 10gb disk for additional storage, perform the folling tasks:  NOTE: You will need to add an additional disk to your VM; however, the exam will specify which disk to use.
+	21. D5:Logical volumes can enhance the file system capabilities of a Linux VM. Understanding and being able to manipulate them is critical to being a successful Linux administrator.  After attaching a 10gb disk for additional storage, perform the folling tasks:  NOTE: You will need to add an additional disk to your VM; however, the exam will specify which disk to use.
 		1. Create two partitions, each with 2GB of storage
 		2. Create a volume group name ‘vg01’ from the two partitions
 		3. Create a logical volume named ‘lv01’ with the following attributes
@@ -240,16 +233,15 @@
 			4. Mount it persistently to /mnt
 		1. Answer: 
 			1. .
-	24. D6:The following tasks may be achieved using the user student’s sudo privileges:
+	22. D6:The following tasks may be achieved using the user student’s sudo privileges:
 		1. Temporarily mount the filesystem available on /dev/xvdf2 under /mnt/backup/.
 		2. Decompress and unarchive the /mnt/backup/backup-primary.tar.bz2 archive into /opt/. This should result in a new directory (created from the archive itself) named /opt/proddata/.
 		3. Answer: 
-			1. .
-		4. .
-	25. D6:Configure the swap partition /dev/xvdi1 so that it does not* become attached automatically at boot time.
+			1. ..
+	23. D6:Configure the swap partition /dev/xvdi1 so that it does not* become attached automatically at boot time.
 		1. Answer: 
 			1. .
-	26. D6:Configure the system so that the existing filesystem that corresponds to /staging gets persistently mounted in read-only mode.
+	24. D6:Configure the system so that the existing filesystem that corresponds to /staging gets persistently mounted in read-only mode.
 		1. Answer:
 			1. .
 - Linux Foundation Prac Exam: run the setup.sh + 1x5gebs + 2 x 4gebs
