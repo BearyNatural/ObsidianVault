@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "323a02b9d96f30ff",
+        "id": "3d934354addac45a",
         "type": "tabs",
         "children": [
           {
-            "id": "8c69d57a615b358d",
+            "id": "b5a766021162706c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/LFCS - Sander van Vugt/Lesson 30 -  Managing User Quota.md",
+                "file": "KodeKloud/20230223 -  Setup SSL for Nginx.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux/LFCS - Sander van Vugt/Lesson 30 -  Managing User Quota.md",
+                "file": "KodeKloud/20230223 -  Setup SSL for Nginx.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,17 +104,18 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "8c69d57a615b358d",
+  "active": "b5a766021162706c",
   "lastOpenFiles": [
+    "KodeKloud/20230223 -  Setup SSL for Nginx.md",
+    "KodeKloud/F-20230220 - Apache Redirects.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 30 -  Managing User Quota.md",
+    "KodeKloud/C-20230222 -  Add Response Headers in Apache.md",
     "Linux/LFCS - Sander van Vugt/Lesson 26 - Managing Partitions.md",
     "Linux/LFCS - Sander van Vugt/Lesson 29 Managing Software RAID.md",
     "Linux/LFCS - Sander van Vugt/Lesson 28 - Managing LVM Logical Volumes.md",
     "Linux/LFCS - Sander van Vugt/Lesson 25 - Managing Mandatory Access Control.md",
     "Linux/LFCS - Sander van Vugt/Lesson 24 Configuring a Firewall.md",
     "Linux/LFCS - Sander van Vugt/Lesson 23 - Managing the Boot Procedure.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 9 - Managing Storage.md",
-    "Linux/My practice steps/My answers.md",
-    "Linux/My practice steps/setup.sh.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 7 - Managing Users and Groups.md"
+    "Linux/LFCS - Sander van Vugt/Lesson 9 - Managing Storage.md"
   ]
 }
