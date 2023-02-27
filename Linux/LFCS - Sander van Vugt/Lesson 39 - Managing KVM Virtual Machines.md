@@ -1,0 +1,22 @@
+![[M23.png]]
+
+- Use the appropriate tools to create a KVM virtual machine, running the operating system of your choice
+- Use the virsh command to verify the VM is running
+- Mark the virtual machine to be started automatically
+- Answers:
+	- apply following procedure to install the VM
+		- Install the following:
+			- qemu-kvm
+			- libvirt
+			- libvirt-client
+			- virt-install
+			- virt-viewer [allows you to see your virtual machines]
+			- virt-manager
+		- check system configurations with the following:
+			- grep vmx /proc/cpuinfo [should come back with vmx highlighted in the text]
+			- lsmod | grep kvm
+		- systemctl enable libvirtd
+		- virt-install --name=myvm --vcpus=1 --memory=512 --cdrom=/tmp/mycd.iso --disk_size=5
+	- virsh list --all [to list all the machines and confirm it is running]
+		- virsh start [machine name]
+	- virsh autostart [machine name]

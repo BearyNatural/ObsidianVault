@@ -26,3 +26,8 @@ storage gateway family
 internal error during today's lab, need to go to vpc endpoints and delete storage gateway interface that was created in the private - will be recreated later??
 go back to storage gateway and recreate as per instructions
 
+imap & pop3 allow you to receive emails 
+- pop3 assumes email accessed only from one application
+- pop3 downloads them from server to local and deletes them from server
+- imap allows simultaneous access by multiple clients
+smtp allows you to send messages

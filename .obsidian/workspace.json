@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "3d934354addac45a",
+        "id": "c03c6a87a684ff39",
         "type": "tabs",
         "children": [
           {
-            "id": "b5a766021162706c",
+            "id": "9cb9b8dcb44e01e5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "KodeKloud/20230223 -  Setup SSL for Nginx.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -77,7 +73,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "KodeKloud/20230223 -  Setup SSL for Nginx.md",
+                "file": "Linux/LFCS - Sander van Vugt/Lesson 39 - Managing KVM Virtual Machines.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,10 +100,29 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "b5a766021162706c",
+  "active": "ade185c4d7a39dc1",
   "lastOpenFiles": [
-    "KodeKloud/20230223 -  Setup SSL for Nginx.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 40 - Managing Linux Containers.md",
+    "M24.png",
+    "Linux/LFCS - Sander van Vugt/Lesson 39 - Managing KVM Virtual Machines.md",
+    "M23.png",
+    "Linux/LFCS - Sander van Vugt/Lesson 38 - Configuring a Proxy.md",
+    "M22.png",
+    "Linux/LFCS - Sander van Vugt/Lesson 37 - Configuring Email.md",
+    "M21.png",
+    "Linux/LFCS - Sander van Vugt/Lesson 36 - Configuring a Database Server.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 36 Configuring a Database Server.md",
+    "M20 2.png",
+    "Linux/My practice steps/Tests practice.md",
+    "Linux/Untitled",
+    "M20 1.png",
+    "Linux/LFCS - Sander van Vugt/Lesson 35 Managing Remote File Shares.md",
+    "Career/CSA interview prep q's/OS Linux.md",
+    "Career/CSA interview prep q's/Networking qs.md",
     "KodeKloud/F-20230220 - Apache Redirects.md",
+    "M3.png",
+    "SCD/SCD trainings.md",
+    "KodeKloud/C-20230223 -  Setup SSL for Nginx.md",
     "Linux/LFCS - Sander van Vugt/Lesson 30 -  Managing User Quota.md",
     "KodeKloud/C-20230222 -  Add Response Headers in Apache.md",
     "Linux/LFCS - Sander van Vugt/Lesson 26 - Managing Partitions.md",
