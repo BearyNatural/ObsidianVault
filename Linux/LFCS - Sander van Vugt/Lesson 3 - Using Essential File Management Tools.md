@@ -20,3 +20,6 @@
 	2. tar -xvf home.tgz -C /tmp/archive/ [-C for where you want it sent to]
 	3. ls /tmp/archive
 	4. tree /tmp/archive
+
+- find all files that have the `executable` permission bit enabled for the `user` that owns them
+	- find / -type f -perm /u+x

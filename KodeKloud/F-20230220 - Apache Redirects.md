@@ -54,18 +54,7 @@ vi /etc/httpd/conf/httpd.conf
 FAILED DUE TO INCOMPLETE WEBSITE :'(
 - service 'httpd' is not running on App Server 2
 
-
-
-
-
-
-
-
-
-
-
-
-
+![[Pasted image 20230227230052.png]]
 
 curl http://stapp02.stratos.xfusioncorp.com:5001/
 curl http://www.stapp02.stratos.xfusioncorp.com:5001/blog/

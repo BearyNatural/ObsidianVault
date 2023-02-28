@@ -1,3 +1,8 @@
+CH 1,
+find / -type fdc -iname '.txt' -user [root]
+ls -l /etc/
+locate -i [command]
+
 CH 2, LAB 1
 `sudo -i`
 

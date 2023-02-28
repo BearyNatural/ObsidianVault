@@ -23,3 +23,6 @@
 	4. grep '^alex$' /tmp/names.txt [this works if the word is the line but won't pick the word out of the line]
 	5. echo 'alex is a polite person' >> /tmp/names.txt
 	6. grep '\<alex\>' /tmp/names.txt [this looks for the word as a whole, there for doesn't match to part words]
+
+- find the word or string in the contents of a file 'special'
+	- grep -rnw 'special' /etc

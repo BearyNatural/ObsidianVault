@@ -11,8 +11,12 @@
             "id": "9cb9b8dcb44e01e5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Linux/My practice steps/My answers.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -57,7 +61,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 297.5
+    "width": 346.5
   },
   "right": {
     "id": "cb514284c4f744db",
@@ -73,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux/LFCS - Sander van Vugt/Lesson 39 - Managing KVM Virtual Machines.md",
+                "file": "Linux/My practice steps/My answers.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,11 +104,25 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "ade185c4d7a39dc1",
+  "active": "9cb9b8dcb44e01e5",
   "lastOpenFiles": [
+    "Linux/VSCode CLI.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 3 - Using Essential File Management Tools.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 4 - Working with Text Files.md",
+    "Linux/My practice steps/My answers.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 8 - Managing Permissions.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 2 - Using Essential Tools.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 5 - Connecting to a Server.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 6 - Working with the Bash Shell.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 7 - Managing Users and Groups.md",
+    "Linux/aCloudGuru/Learn Linux by Doing.md",
+    "KodeKloud/20230227 - Apache Redirects.md",
+    "KodeKloud/F-20230220 - Apache Redirects.md",
+    "Pasted image 20230227230052.png",
+    "Pasted image 20230227225859.png",
+    "Linux/LFCS - Sander van Vugt/Lesson 39 - Managing KVM Virtual Machines.md",
     "Linux/LFCS - Sander van Vugt/Lesson 40 - Managing Linux Containers.md",
     "M24.png",
-    "Linux/LFCS - Sander van Vugt/Lesson 39 - Managing KVM Virtual Machines.md",
     "M23.png",
     "Linux/LFCS - Sander van Vugt/Lesson 38 - Configuring a Proxy.md",
     "M22.png",
@@ -119,18 +137,10 @@
     "Linux/LFCS - Sander van Vugt/Lesson 35 Managing Remote File Shares.md",
     "Career/CSA interview prep q's/OS Linux.md",
     "Career/CSA interview prep q's/Networking qs.md",
-    "KodeKloud/F-20230220 - Apache Redirects.md",
     "M3.png",
     "SCD/SCD trainings.md",
     "KodeKloud/C-20230223 -  Setup SSL for Nginx.md",
     "Linux/LFCS - Sander van Vugt/Lesson 30 -  Managing User Quota.md",
-    "KodeKloud/C-20230222 -  Add Response Headers in Apache.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 26 - Managing Partitions.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 29 Managing Software RAID.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 28 - Managing LVM Logical Volumes.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 25 - Managing Mandatory Access Control.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 24 Configuring a Firewall.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 23 - Managing the Boot Procedure.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 9 - Managing Storage.md"
+    "KodeKloud/C-20230222 -  Add Response Headers in Apache.md"
   ]
 }

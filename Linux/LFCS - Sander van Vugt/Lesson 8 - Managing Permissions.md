@@ -19,3 +19,12 @@
 5. Users will only be allowed to delete files they have created themselves, but user anna is the sales manager and should be able to mange all sales files
 	1. chmod +t sales
 	2. chown anna sales 
+
+- SUID / SETUID
+	- chmod u+s file
+- SGID / SETGID
+	- chmod g+s file
+- +t sticky
+	- chmod +t file
+- chattr - for the file that you can't delete!
+	- 

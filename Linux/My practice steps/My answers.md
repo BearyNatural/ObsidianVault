@@ -700,7 +700,7 @@
 			3. find /home/example/ -type f -perm /4000 > /home/example/answer2
 				1. cat /home/example/answer2
 			4. find /home/example/ -type f -size 126M > /home/example/answer3
-				1. cat /home/example/answer3
+				1. cat /home/example/answer3 [for greater + & lesser -]
 			5. find /home/example/ -type f -size +400k > /home/example/answer4
 				1. cat /home/example/answer4
 			6. find /home/example/ -type f -name *.tar > /home/example/answer5
