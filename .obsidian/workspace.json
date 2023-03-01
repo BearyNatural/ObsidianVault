@@ -4,11 +4,29 @@
     "type": "split",
     "children": [
       {
-        "id": "c03c6a87a684ff39",
+        "id": "a1b8066283dd3421",
         "type": "tabs",
         "children": [
           {
-            "id": "9cb9b8dcb44e01e5",
+            "id": "dd3cdebd950f373e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux/My practice steps/KodeKloud LFCS Pract exam 1.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "5a2dccc4e9e5d97d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e1aa46abb0320a10",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -104,19 +122,22 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "9cb9b8dcb44e01e5",
+  "active": "e1aa46abb0320a10",
   "lastOpenFiles": [
-    "Linux/VSCode CLI.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 3 - Using Essential File Management Tools.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 4 - Working with Text Files.md",
+    "Linux/My practice steps/KodeKloud LFCS Pract exam 1.md",
     "Linux/My practice steps/My answers.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 9 - Managing Storage.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 4 - Working with Text Files.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 3 - Using Essential File Management Tools.md",
     "Linux/LFCS - Sander van Vugt/Lesson 8 - Managing Permissions.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 2 - Using Essential Tools.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 5 - Connecting to a Server.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 6 - Working with the Bash Shell.md",
     "Linux/LFCS - Sander van Vugt/Lesson 7 - Managing Users and Groups.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 6 - Working with the Bash Shell.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 5 - Connecting to a Server.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 2 - Using Essential Tools.md",
+    "Career/CSA interview prep q's/Networking qs.md",
+    "KodeKloud/F-20230227 - Apache Redirects.md",
+    "Linux/VSCode CLI.md",
     "Linux/aCloudGuru/Learn Linux by Doing.md",
-    "KodeKloud/20230227 - Apache Redirects.md",
     "KodeKloud/F-20230220 - Apache Redirects.md",
     "Pasted image 20230227230052.png",
     "Pasted image 20230227225859.png",
@@ -136,11 +157,8 @@
     "M20 1.png",
     "Linux/LFCS - Sander van Vugt/Lesson 35 Managing Remote File Shares.md",
     "Career/CSA interview prep q's/OS Linux.md",
-    "Career/CSA interview prep q's/Networking qs.md",
     "M3.png",
     "SCD/SCD trainings.md",
-    "KodeKloud/C-20230223 -  Setup SSL for Nginx.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 30 -  Managing User Quota.md",
-    "KodeKloud/C-20230222 -  Add Response Headers in Apache.md"
+    "KodeKloud/C-20230223 -  Setup SSL for Nginx.md"
   ]
 }

@@ -1,0 +1,49 @@
+Q's that I have troubles with to research later:
+
+- find how many hard links this file has
+	- ls -li [no this shows the Inode]
+	- stat file[yes shows everything including the hard links number]
+	- find -ls
+	- ln -inum [no this errored perhaps not meant to be ln maybe ll]
+	- ll -inum [shows just inode and file names]
+- Create a BZipped compressed tar archive now:
+	- tar -cjvf /opt/manyfiles.tar.bz2 /opt/manyfiles/
+- Finally create a Zip archive:
+	- zip -r /opt/manfiles.zip /opt/manyfiles/
+- Unzip a zip file
+	- unzip -d /opt/restoredzip backup.zip
+- give a user a password [test does not accept usermod -p password]
+	- passwd smith [then enter the password that way]
+- Lock the password for the user
+	- passwd -l employee2
+- remove a user from a group
+	- gpasswd -d user group
+- Print out the `network routing table` and save the entire output to `/opt/routes.txt` file. Also make sure to preserve any existing content of this file.
+	- ip route
+- First, in your home directory you will find a file called `bobandjane`. Currently this file can only be read by `bob`. Add a new `ACL` permission so that `jane` can also `read` this. Jane should not have `write` or `execute` permissions, but only the `read` permission.
+	- setfacl --modify user:jan:r bobandjane
+- docker list all containers then remove all docker container images except for nginx
+	- docker container list -a
+	- docker images
+	- docker rmi imageID
+- Add an extra `DNS resolver` (nameserver) on this system: `8.8.8.8`
+	- vi /etc/resolv.conf
+- Add a `static host` so that the host called `database` resolves to this IP address: `10.0.0.12`
+	- vi /etc/hosts
+- Find out the IP address of `eth1` interface on `node01` and add a `temporary static route` so that network traffic going to `192.168.5.0/24` is routed via the IP address you find.
+	- ip route
+	- ip route add 192.168.5.0/24 via 172.28.128.1[eth1IP]
+- add a new acl for jane who can not write or execute only read
+	- https://unix.stackexchange.com/questions/298382/how-do-i-grant-different-permissions-for-each-user
+	- chown bob:jane bobandjane
+	- getfacl file
+	- setfacl -m u:jane:r /home/bob/bobandjane
+- `SIGHUP` signal to the `httpd` process
+	- pkill -f httpd [check with pidof httpd]
+	- kill -sighup [pidof httpd]
+- create partitions and swap
+	- partprobe [after creating the partitions]
+	- mkswap /dev/vdb1 [copy the uuid]
+	- swapon /dev/vdb1
+	- vi /etc/fstab [uuid swap swap defaults 0 0]
+	- vi /etc/fstab [/dev/vdb1 none swap defaults 0 0]

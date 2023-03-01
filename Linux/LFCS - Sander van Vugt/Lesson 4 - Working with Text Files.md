@@ -26,3 +26,7 @@
 
 - find the word or string in the contents of a file 'special'
 	- grep -rnw 'special' /etc
+- fine and print what comes before '=' 
+	- cat /etc/settings.conf | grep 'disabled' | cut -d = -f1
+- SAA only after '='
+	- cat /etc/settings.conf | grep 'disabled' | cut -d = -f2

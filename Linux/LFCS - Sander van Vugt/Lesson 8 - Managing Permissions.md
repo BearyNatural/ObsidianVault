@@ -27,4 +27,6 @@
 - +t sticky
 	- chmod +t file
 - chattr - for the file that you can't delete!
+	- lsattr 
+	- chattr -i [filename] or which ever letter lsattr shows
 	- 

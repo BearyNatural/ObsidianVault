@@ -23,3 +23,6 @@
 
 - find all files that have the `executable` permission bit enabled for the `user` that owns them
 	- find / -type f -perm /u+x
+- How to remove a file that won't be deleted
+	- lsattr /
+	- chattr -i [filename] or which ever letter lsattr shows
