@@ -18,7 +18,13 @@
                 "source": false
               }
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "5a2dccc4e9e5d97d",
+        "type": "tabs",
+        "children": [
           {
             "id": "70fa5db6d370f027",
             "type": "leaf",
@@ -26,25 +32,6 @@
               "type": "markdown",
               "state": {
                 "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCW Prac exam 2.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "5a2dccc4e9e5d97d",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "e1aa46abb0320a10",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux/My practice steps/Mock Exams/My answers.md",
                 "mode": "source",
                 "source": false
               }
@@ -137,9 +124,12 @@
   },
   "active": "70fa5db6d370f027",
   "lastOpenFiles": [
+    "KodeKloud/C-20230302 -  Linux Configure sudo.md",
     "Linux/My practice steps/Mock Exams/My answers.md",
-    "Linux/My practice steps/Mock Exams/KodeKloud LFCS Pract exam 1.md",
+    "Career/CSA interview prep q's/Networking qs.md",
+    "Career/CSA interview prep q's/OS Linux.md",
     "Linux/My practice steps/Mock Exams/KodeKloud LFCW Prac exam 2.md",
+    "Linux/My practice steps/Mock Exams/KodeKloud LFCS Pract exam 1.md",
     "Linux/My practice steps/Mock Exams/Tests practice.md",
     "Linux/My practice steps/Mock Exams",
     "Linux/LFCS - Sander van Vugt/Lesson 9 - Managing Storage.md",
@@ -150,7 +140,6 @@
     "Linux/LFCS - Sander van Vugt/Lesson 6 - Working with the Bash Shell.md",
     "Linux/LFCS - Sander van Vugt/Lesson 5 - Connecting to a Server.md",
     "Linux/LFCS - Sander van Vugt/Lesson 2 - Using Essential Tools.md",
-    "Career/CSA interview prep q's/Networking qs.md",
     "KodeKloud/F-20230227 - Apache Redirects.md",
     "Linux/VSCode CLI.md",
     "Linux/aCloudGuru/Learn Linux by Doing.md",
@@ -171,8 +160,6 @@
     "Linux/Untitled",
     "M20 1.png",
     "Linux/LFCS - Sander van Vugt/Lesson 35 Managing Remote File Shares.md",
-    "Career/CSA interview prep q's/OS Linux.md",
-    "M3.png",
-    "SCD/SCD trainings.md"
+    "M3.png"
   ]
 }
