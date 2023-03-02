@@ -1,0 +1,9 @@
+- Find and `delete` all the files which have the following octal permissions: 666
+	- find /opt/assets/ -type f -perm /a=rw [did not work also ugo=rw]
+- bash script which: incorrect need to verify the script ???
+	- `lists` all the files present inside `/opt/` directory, pipes this output to the `sha256sum` command and then saves the output of the `sha256sum` command in `/home/bob/binhash.txt` file.  Use the regular command to list the directory contents without any options like `long listing format, hidden files` etc. Make sure to give it executable permissions.
+		- echo 'ls | sha256sum > /home/bob/binhash.txt' > /home/bob/script.sh
+- cut all data before/after
+	- diff dir2 dir1 | cut -d ':' -f1 [after]
+	- diff dir2 dir1 | cut -d ':' -f2 [before]
+- 1st 8qs bash U octal permissions still an issue
