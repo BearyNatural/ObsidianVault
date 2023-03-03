@@ -8,36 +8,74 @@
         "type": "tabs",
         "children": [
           {
+            "id": "de81d79e180d302e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux/My practice steps/Mock Exams/My answers.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "dd3cdebd950f373e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Pract exam 1.md",
+                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 1.md",
                 "mode": "source",
                 "source": false
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "5a2dccc4e9e5d97d",
-        "type": "tabs",
-        "children": [
+          },
           {
             "id": "70fa5db6d370f027",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCW Prac exam 2.md",
+                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac exam 2.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "5a2dccc4e9e5d97d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7de945b847f933a4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 3.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9f18c76b8a8d9ab7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 4.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -95,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCW Prac exam 2.md",
+                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 4.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,14 +160,17 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "70fa5db6d370f027",
+  "active": "9f18c76b8a8d9ab7",
   "lastOpenFiles": [
-    "KodeKloud/C-20230302 -  Linux Configure sudo.md",
+    "KodeKloud/C-20230303 -  Linux Bash Scripts.md",
+    "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 1.md",
     "Linux/My practice steps/Mock Exams/My answers.md",
+    "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac exam 2.md",
+    "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 3.md",
+    "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 4.md",
+    "KodeKloud/C-20230302 -  Linux Configure sudo.md",
     "Career/CSA interview prep q's/Networking qs.md",
     "Career/CSA interview prep q's/OS Linux.md",
-    "Linux/My practice steps/Mock Exams/KodeKloud LFCW Prac exam 2.md",
-    "Linux/My practice steps/Mock Exams/KodeKloud LFCS Pract exam 1.md",
     "Linux/My practice steps/Mock Exams/Tests practice.md",
     "Linux/My practice steps/Mock Exams",
     "Linux/LFCS - Sander van Vugt/Lesson 9 - Managing Storage.md",
@@ -154,12 +195,9 @@
     "M22.png",
     "Linux/LFCS - Sander van Vugt/Lesson 37 - Configuring Email.md",
     "M21.png",
-    "Linux/LFCS - Sander van Vugt/Lesson 36 - Configuring a Database Server.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 36 Configuring a Database Server.md",
     "M20 2.png",
     "Linux/Untitled",
     "M20 1.png",
-    "Linux/LFCS - Sander van Vugt/Lesson 35 Managing Remote File Shares.md",
     "M3.png"
   ]
 }

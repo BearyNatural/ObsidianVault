@@ -1,0 +1,85 @@
+- 2. https://stackoverflow.com/questions/32922557/find-files-modified-over-1-hour-ago-but-less-than-3-days
+	- Find all files in the `collection` directory that were `modified less than 1 hour ago`. `Copy` all such files to the `/opt/oldfiles/` directory.
+		- find collection/ -type f -mmin -60 [doesn't work]
+- 4.
+	- First, look for `reversed.txt`. The text inside makes no sense when you read from top to bottom. But there is a command that lets you read a file `backwards`, from `bottom to top`. Use that command to display this file and redirect the `reversed output` to `/opt/corrected.txt` https://www.cyberciti.biz/faq/how-to-reverse-string-in-unix-shell-script/
+		- tac filename 
+	- Look for a file called `shuffled.txt`. You will find `200` lines Inside it, in a random order. Do not change the contents of this file throughout this exercise. There are lines that contain the word line followed by a number between `00` and `99`, and some lines that contain the word `LINE` followed by a number between `00` and `99`.  Filter out only the lines written in `CAPITAL LETTERS`, containing the word `LINE`. Then sort this filtered output so that these lines appear in their natural order, from `LINE00, LINE01, LINE02`, all the way to `LINE99`. Save this filtered and sorted output to this file: `/opt/sortedLINES.txt`
+		- cat shuffled.txt |grep LINE | sort -V 
+- 5.
+	- Archive the databases directory again. But this time, do it differently. First of all, save the archive at `/opt/archive2.tar.gz`.  This time the `tar tf /opt/archive2.tar.gz` command should show `bob/databases/` as the base directory instead of `home/bob/databases/`. [without parent] https://tarcommands.com/how-to-create-a-tar-archive-without-the-parent-directory/
+		- tar -C /directory/ -cf file.tar
+- 6. Execute and verify the script.  Create a `bash script`: `/opt/script.sh`. Make sure it is `owned` by the `root` user. This script should do the following:  **A.** Archive the `/var/www/` directory and store this archive in `/root/www-backup.tar.gz`  **B.** Set `600` permissions for `/root/www-backup.tar.gz` archive.
+	- ci /opt/script.sh
+		- #!/bin/bash 
+		- tar -P -czvf /root/www-backup.tar.gz /var/www/ 
+		- chmod 600 /root/www-backup.tar.gz
+	- chmod +x file
+	- execute
+- 8. 
+	- What is the `SELinux` security context for the process running with `PID 2`? Write this context to the `/opt/context.txt` file. Here is an example: say a user found this when inspecting SELinux aspects of PID 848:
+		- ps -eZ | head -5 [ps -eZ | awk '{print $2}' | grep 2] echo the results 
+- 9. Analyze the system logs and find out what is the last user that had a password change. Save the name of this user to the `/opt/user.txt` file. https://www.golinuxcloud.com/check-last-password-change-expiration-linux/ https://docs.rackspace.com/support/how-to/view-password-change-logs-in-linux/
+	- cat /var/log/secure | grep -i password | tail -1 [/var/log/auth.log for ubuntu]
+	- 
+- 10. 
+	- 0 4 * * 1 /usr/local/bin/script1.sh
+	- 30 4 1 * * /usr/local/bin/script2.sh
+	- 0 1,2,3 * * * /usr/local/bin/script3.sh
+- 11.
+	- How much total `RAM` does this system have? Write one of these answers: `More than 1GB`  or  `Less than 1GB`  to the following file:  `/opt/memory.txt` https://askubuntu.com/questions/302586/how-to-find-how-much-ram-does-my-computer-have
+		- cat /proc/meminfo | grep -i memtotal [or] free -lm or  top | grep -i mem
+		- du -sh /usr/bin
+		- didn't Verify the content of "/opt/dirsize.txt" file.
+- 13. 
+	- Set her `account` to `expire` on `2028-12-10.` This is `account expiration`, not to be confused with password expiration, or password locking, which are different things. https://melvingeorge.me/blog/set-expiry-date-for-user-account-linux
+		- usermod -e date-da-te user
+	- jane can't run sudo commands
+		- Add user `jane` to wheel group so that she can run the `sudo` commands:
+	- There is an another user called `david` . Mark the `password` for `david` as `expired`. This will effectively force him to change his password next time he logs in. https://www.tecmint.com/force-user-to-change-password-next-login-in-linux/
+		- passwd --expire user [chage -l user] to check
+- 14. Update the `system-wide environment profile` that does the following:  For every user that logs in to this system, it sets an `environment variable` called `KODEKLOUD` to the following value: `https://kodekloud.com/`  Otherwise said, after a user logs in to this system, any user, if they type the `env` command, they should see this in their output: KODEDLOUD=https://kodkloud.com/ https://www.xmodulo.com/how-to-set-system-wide-environment-variables-in-linux.html
+	- vi /etc/environment [/etc/environment for ubuntu]
+		- KODEDLOUD=https://kodkloud.com/
+- 15. Currently, when you use the `su` command it will ask for `root`'s password to allow you to log in as user root. Modify the `PAM` configuration for the `su` command so that you no longer have to type that password.  More specifically, modify the `PAM` config for `su` so that users in the `wheel` group are not required to type that, because they're implicitly `trusted`. https://www.redhat.com/sysadmin/pam-authconfig
+	- vi /etc/pam.d/su
+		- auth           sufficient      pam_wheel.so trust use_uid [uncomment]
+- 16. 
+	- What DNS resolvers does this system use? Write the IPs of the resolvers to this file: `/opt/resolvers.txt`
+		- 
+		- ip -a
+		- cat /etc/resolv.conf
+		- cat /etc/resolv.conf | tail -2
+		- ip r
+- 17. A bind DNS server is installed on this system. Find the DNS zone file for the `example.com` domain and open it for editing.  https://ubuntu.com/server/docs/service-domain-name-service-dns
+	- An inexperienced sysadmin added two lines but made a small mistake that made those lines invalid. Due to that the `named` service is not coming up now. Can you spot and correct those two lines? Also make sure to start `named` service after that.
+		- systemctl start named
+		- systemctl status named
+		- You should see issue related to CNAME and TXT record which are having typos, fix the same in /var/named/example.com.zone and start named service:
+			- vi /var/named/example.com.zone
+		- Change www CNAM example.com. to www CNAME example.com. and  Change example.com. TX "We can write anything in here!" to what ever was next ???
+		- systemctl start named
+		- Edit /var/named/example.com.zone file to add a new NS (you can add under ns2.example.com.):
+			- @               NS      ns1.example.com.
+			- @               NS      ns2.example.com.
+			- @               NS      ns3.example.com.
+			- ns1             A       10.11.12.9
+			- ns2             A       10.11.12.10
+			- ns3             A       10.11.12.11
+	- After you've made your modifications, don't forget to increment the serial number (`0 to 1`). https://docstore.mik.ua/orelly/networking_2ndEd/dns/ch07_02.htm - complex
+		- 
+			- Also increment the serial number from 0 to 1
+		- systemctl restart named
+- 18. IMAPS port has been changed?
+	- ss -natp | grep 993
+	- vi /etc/dovecot/conf.d/10-master.conf
+	- Under inet_listener imaps { change #port = 993 to port = 990 and save the file.
+		- systemctl restart dovecot
+- 19. Edit the main config file of the httpd daemon. Make the following changes:
+	- Make sure that only errors with a `debug` severity and higher are collected to that error logs. https://www.loggly.com/ultimate-guide/access-and-error-logs/ httpd is configured as needed?
+		- vi /etc/httpd/conf/httpd.conf
+			- Change ErrorLog "logs/error_log" to ErrorLog "logs/httpd_errors.log" and LogLevel warn to debug
+			- systemctl restart httpd
+- 21. Prepare the disk at `/dev/vde` for encryption:
+	- Open the encrypted device and map it to the virtual unencrypted device called `examdrive` https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/apcs04s04
+- 

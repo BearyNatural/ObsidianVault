@@ -1,0 +1,6 @@
+- 1. In your home directory you will find some files and directories. lsattr??
+	- First, there is one hidden file under `hidden` directory, it is not appearing in a regular `ls` command without the proper command option. Find this `hidden` file and `copy` it to `/opt/` directory.
+		- ls -a [all means all including the hidden files]
+	- There is an another directory called `preserved` in your `home` directory. `Move` this directory and all the files it contains to `/opt/` directory. In the move operation, make sure to use the proper options to `preserve all metadata` such as `permission, owners, file creation times` etc.
+		- mv -a [archive/preserve permissions and stuff]
+- 
