@@ -1,17 +1,22 @@
+- 46% [for 14 out of 24=78%;] 
 - 2. https://stackoverflow.com/questions/32922557/find-files-modified-over-1-hour-ago-but-less-than-3-days
+	- Create a `soft link` in `/opt/` directory. The link should be `/opt/bobscollection` and it should point to `/home/bob/collection/` directory
+		- ln -s currentfiledirectory createdsoftlinkfiledirectory
 	- Find all files in the `collection` directory that were `modified less than 1 hour ago`. `Copy` all such files to the `/opt/oldfiles/` directory.
-		- find collection/ -type f -mmin -60 [doesn't work]
+		- find collection/ -type f -mmin -60 [this is correct]
 - 4.
 	- First, look for `reversed.txt`. The text inside makes no sense when you read from top to bottom. But there is a command that lets you read a file `backwards`, from `bottom to top`. Use that command to display this file and redirect the `reversed output` to `/opt/corrected.txt` https://www.cyberciti.biz/faq/how-to-reverse-string-in-unix-shell-script/
 		- tac filename 
 	- Look for a file called `shuffled.txt`. You will find `200` lines Inside it, in a random order. Do not change the contents of this file throughout this exercise. There are lines that contain the word line followed by a number between `00` and `99`, and some lines that contain the word `LINE` followed by a number between `00` and `99`.  Filter out only the lines written in `CAPITAL LETTERS`, containing the word `LINE`. Then sort this filtered output so that these lines appear in their natural order, from `LINE00, LINE01, LINE02`, all the way to `LINE99`. Save this filtered and sorted output to this file: `/opt/sortedLINES.txt`
 		- cat shuffled.txt |grep LINE | sort -V 
 - 5.
+	- create archive.tar.bz2
+		- tar -cjf /opt/archive.tar.bz2 /hom/bob/databases/
 	- Archive the databases directory again. But this time, do it differently. First of all, save the archive at `/opt/archive2.tar.gz`.  This time the `tar tf /opt/archive2.tar.gz` command should show `bob/databases/` as the base directory instead of `home/bob/databases/`. [without parent] https://tarcommands.com/how-to-create-a-tar-archive-without-the-parent-directory/
-		- tar -C /directory/ -cf file.tar
+		- tar -C /directory/ -czf file.tar
 - 6. Execute and verify the script.  Create a `bash script`: `/opt/script.sh`. Make sure it is `owned` by the `root` user. This script should do the following:  **A.** Archive the `/var/www/` directory and store this archive in `/root/www-backup.tar.gz`  **B.** Set `600` permissions for `/root/www-backup.tar.gz` archive.
 	- ci /opt/script.sh
-		- #!/bin/bash 
+		- #!/bin/bash [don't forget this step!!]
 		- tar -P -czvf /root/www-backup.tar.gz /var/www/ 
 		- chmod 600 /root/www-backup.tar.gz
 	- chmod +x file

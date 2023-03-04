@@ -1,6 +1,106 @@
-- 1. In your home directory you will find some files and directories. lsattr??
-	- First, there is one hidden file under `hidden` directory, it is not appearing in a regular `ls` command without the proper command option. Find this `hidden` file and `copy` it to `/opt/` directory.
-		- ls -a [all means all including the hidden files]
-	- There is an another directory called `preserved` in your `home` directory. `Move` this directory and all the files it contains to `/opt/` directory. In the move operation, make sure to use the proper options to `preserve all metadata` such as `permission, owners, file creation times` etc.
-		- mv -a [archive/preserve permissions and stuff]
-- 
+- [feeling brain dead!] #earlysaturdaymorningstudycram 86%
+- 2.
+	- Create `/opt/new/` directory and create a file called `empty` under it:
+		- mkdir /opt/new
+		- touch /opt/new/emty
+	- create hard link
+		- ln /opt/new/empty /home/bob/samefile
+- 5. 
+	- All of the remaining files in `collection/` have some text content inside. Look through these all files and find the files that contain the letter `e` or `E`. For example, a file with the word `help` or `HELP` should match. Once you found these files, also move them to `/opt/foundfiles/` directory.
+		- grep -ir 'e' /home/bob/collection/ 
+		- mv /home/bob/collection/file575 /opt/foundfiles/
+		- mv /home/bob/collection/file875 /opt/foundfiles/
+	- Find the file that is `not readable by other users`, rest of permissions don't matter. Once you found this, restore the `+r` permission for `other users`. Make this single change, leaving all other permission unchanged, in their original form.
+		- find /home/bob/collection/ -type f -perm 640 -exec sudo chmod o+r {} \;
+- 6.
+	- Find unique word and write this word to this file: /opt/word.txt 
+		- diff yesfile1 yesfile2
+		- bash -c "echo 'maybe' > /opt/word.txt"
+- 7. 
+	- Find word sort and list in lsmanpage.txt file and redirect the output to /opt/filtered.txt file:
+- 8. Find word `sort` and `list` in `lsmanpage.txt` file and redirect the output to `/opt/filtered.txt` file: 
+		- echo "grep -w 'sort' /home/bob/lsmanpage.txt  > /opt/filtered.txt"
+		- echo "grep -iw 'list' lsmanpage.txt  >> /opt/filtered.txt"
+- 9. 
+	- change boot target of system to graphical.target https://www.cyberciti.biz/faq/switch-boot-target-to-text-gui-in-systemd-linux/
+		- systemctl get-default
+		- systemctl set-default graphical.target
+			- systemctl reboot [doesn't say to do this]
+	- schedule power-off at 23:45 https://www.cyberciti.biz/faq/switch-boot-target-to-text-gui-in-systemd-linux/
+		- shutdown 23:45
+- 11. 
+	- List the `opened files` used by this process and save this list to `/opt/openedfiles.txt` https://alvinalexander.com/blog/post/linux-unix/linux-lsof-command/ Filter the PID and save the PID number to this file: /opt/pid.txt: 
+		- pidof or lsof -p 
+			- netstat -p  | grep cached
+			- echo '<>' > /opt/pid.txt
+			- Save the opened files list to /opt/openedfiles.txt file:
+				- echo '<>'  >> /opt/openedfiles.txt"
+- 12. A user tried to run a command with `sudo (root)` privileges but entered the wrong password.  Look through your system logs and find out the exact `username` that failed to provide the correct password. Then save this username to `/opt/userfail.txt ` For example, if the user called `smith` provided the wrong `password` then you just write `smith` to that file.
+	- cat /var/log/secure | grep -i 'pass'
+	- echo 'jane' > /opt/userfail.txt
+- 16. In this exercise you will work with kernel runtime parameters.
+	- List all kernel parameters that contain the word `cache`. Redirect this filtered output to the file `/opt/kruntime.txt`
+		- sysctl -a | sudo bash -c 'grep cache > /opt/kruntime.txt'
+		- 
+	- Set the kernel runtime parameter `vm.swappiness` to this value: `5`. Make this both a `persistent change` and a `non-persistent change`. Otherwise said, every time this system boots in the future, the value of `vm.swappiness` should be set to `5`, automatically. But `vm.swappiness` should be changed to `5` for your current boot session as well.
+		- Edit /etc/sysctl.conf file:
+			- vi /etc/sysctl.conf
+				- vm.swappiness=5
+		- sudo sysctl -p
+- 17. 
+	- Set smith's password to
+		- echo 'smith:Exam4Passed' | sudo chpasswd
+	- Change their login shell to `/bin/sh`
+		- usermod --shell /bin/sh smithss
+	- Set a resource limit for this user. Make sure that `smith` can launch not more than `30 processes`. This should be a `hard` limit.
+		- smith           hard    nproc           30
+- 18. Inspect your system and find out what application is listening for incoming connections on `TCP` port `11211`. Write the `PID` number for the process associated with that application, to the following file: `/opt/pidof11211.txt`
+	- ss -natp | grep 11211
+	- vi /opt/pidof11211.txt
+- 19.SSH into `node01` using user `bob` and password `caleston123`
+	- Find out what `DNS` resolver(s) this system is using, save the `IP address` of at least one of the DNS resolvers to the following file: `/opt/resolverandroutes.txt`
+		- cat /etc/resolv.conf | grep nameserver
+		- vi /opt/resolverandroutes.txt
+	- Print out the routing table of this system and save the output to the same file: `/opt/resolverandroutes.txt` Make sure you don't overwrite the previous file contents.
+		- ip r >> /opt/resolverandroutes.txt
+	- Add a static host to this system. The hostname you should add is `webserver` and it should statically resolve to the following IP address: `1.1.1.1`
+		- vi /etc/hosts
+			- Add 1.1.1.1 webserver line in it and save.
+- 20. In this exercise, you will work with Docker. Perform the following actions:
+	- List the containers available on this system. In your output, you should see only one docker instance available. Save its name (the one you see under the `NAMES` field in that output) to this file: `/opt/containername.txt`
+		- docker ps -a
+		- vi /opt/containername.txt
+	- Remove the following docker image: `nginx`. You can make any change you think is necessary to achieve this.
+		- docker rmi nginx
+	- Create a new container called `exam4` that will run the `httpd` daemon. Use the `httpd` docker image for this container. Make sure port `8081` on the host is mapped to port `80` of the container.
+		- docker run --name exam4 -p 8081:80 -d httpd [have to run it this way can't create it then start it as create has an issue with -d]
+- 21. There is one virtual machine created on this system, but it's currently in a stopped state.
+	- Start this `virtual` machine.
+		- virsh list
+		- virsh start vmname
+	- Also, make sure this `virtual machine` will `automatically start` every time the system `boots` up.
+		- virsh autostart vmname
+- 22. You have a disk available at `/dev/vdb`.
+	- Create a `500MB` `partition` on this disk.
+		- fdisk /dev/vdb - n,p,1, ,+500M ,p, w
+	- Create an `ext4` filesystem with a block size of `2048` bytes on this partition.
+		- mkfs.ext4 -b 2048 /dev/vdb1
+	- Manually `mount` this filesystem in the `/mnt` directory.
+		- mount /dev/vdb1 /mnt/
+- 23. In your home directory you will find two files.
+	- Edit this file, `imm.txt` and add the following text under the existing line: `New line added successfully`
+		- lsattr file
+		- chattr -i imm.txt
+		- vi imm.txt
+	- Edit this file, `app.txt` and correct that equation. It should be `1+1=2` instead.
+		- chattr -a app.txt
+		- vi app.txt
+- 24. There is a `LVM` structure available. Perform the following actions:
+	- **A.** Remove the following `PV`, physical volume: `/dev/vdd`
+		- pvremove /dev/vdd
+	- **B.** Create a `VG`, volume group. The name of this volume should be `examVG`. This VG should consist of only the `/dev/vdc` physical volume.
+		- vgcreate examVG /dev/vdc
+	- **C.** Create an `LV`, logical volume. Its size should be 100 megabytes. Its name should be `examLV`. Of course, this LV should be created on the `examVG` volume group.
+		- lvcreate -L 100MB -n examLV examVG
+	- **D.** Create an `xfs` filesystem with a `block size` of `1024 bytes` on the `examLV` logical volume.
+		- mkfs.xfs -b size=1024 /dev/examVG/examLV
