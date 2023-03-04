@@ -1,4 +1,4 @@
-- 46% [for 14 out of 24=78%;] 
+- 46% [for 14 out of 24=78%;] 75%
 - 2. https://stackoverflow.com/questions/32922557/find-files-modified-over-1-hour-ago-but-less-than-3-days
 	- Create a `soft link` in `/opt/` directory. The link should be `/opt/bobscollection` and it should point to `/home/bob/collection/` directory
 		- ln -s currentfiledirectory createdsoftlinkfiledirectory
@@ -15,7 +15,7 @@
 	- Archive the databases directory again. But this time, do it differently. First of all, save the archive at `/opt/archive2.tar.gz`.  This time the `tar tf /opt/archive2.tar.gz` command should show `bob/databases/` as the base directory instead of `home/bob/databases/`. [without parent] https://tarcommands.com/how-to-create-a-tar-archive-without-the-parent-directory/
 		- tar -C /directory/ -czf file.tar
 - 6. Execute and verify the script.  Create a `bash script`: `/opt/script.sh`. Make sure it is `owned` by the `root` user. This script should do the following:  **A.** Archive the `/var/www/` directory and store this archive in `/root/www-backup.tar.gz`  **B.** Set `600` permissions for `/root/www-backup.tar.gz` archive.
-	- ci /opt/script.sh
+	- vi /opt/script.sh
 		- #!/bin/bash [don't forget this step!!]
 		- tar -P -czvf /root/www-backup.tar.gz /var/www/ 
 		- chmod 600 /root/www-backup.tar.gz
@@ -52,39 +52,67 @@
 - 16. 
 	- What DNS resolvers does this system use? Write the IPs of the resolvers to this file: `/opt/resolvers.txt`
 		- 
-		- ip -a
+		- ip route
 		- cat /etc/resolv.conf
 		- cat /etc/resolv.conf | tail -2
 		- ip r
 - 17. A bind DNS server is installed on this system. Find the DNS zone file for the `example.com` domain and open it for editing.  https://ubuntu.com/server/docs/service-domain-name-service-dns
 	- An inexperienced sysadmin added two lines but made a small mistake that made those lines invalid. Due to that the `named` service is not coming up now. Can you spot and correct those two lines? Also make sure to start `named` service after that.
-		- systemctl start named
-		- systemctl status named
+		- Try to start named service:
+			- systemctl start named
+		- Now check its status:
+			- systemctl status named
 		- You should see issue related to CNAME and TXT record which are having typos, fix the same in /var/named/example.com.zone and start named service:
 			- vi /var/named/example.com.zone
-		- Change www CNAM example.com. to www CNAME example.com. and  Change example.com. TX "We can write anything in here!" to what ever was next ???
+		- Change www [what needs to be changed]
+			- CNAM example.com. 
+			- [www CNAME example.com.]  
+			- example.com. TX "We can write anything in here!" 
+			- [example.com. TXT "We can write anything in here!"]
 		- systemctl start named
-		- Edit /var/named/example.com.zone file to add a new NS (you can add under ns2.example.com.):
+		- vi /var/named/example.com.zone file to add a new [NS]:
 			- @               NS      ns1.example.com.
 			- @               NS      ns2.example.com.
-			- @               NS      ns3.example.com.
+			- [@               NS      ns3.example.com.]
 			- ns1             A       10.11.12.9
 			- ns2             A       10.11.12.10
-			- ns3             A       10.11.12.11
+			- [ns3             A       10.11.12.11]
 	- After you've made your modifications, don't forget to increment the serial number (`0 to 1`). https://docstore.mik.ua/orelly/networking_2ndEd/dns/ch07_02.htm - complex
-		- 
-			- Also increment the serial number from 0 to 1
 		- systemctl restart named
 - 18. IMAPS port has been changed?
-	- ss -natp | grep 993
+	- netstat -lnp | grep 993
 	- vi /etc/dovecot/conf.d/10-master.conf
-	- Under inet_listener imaps { change #port = 993 to port = 990 and save the file.
+	- Under inet_listener imaps { change #port = 993 to port = 990 and save the file. i.e. uncomment the line also
 		- systemctl restart dovecot
 - 19. Edit the main config file of the httpd daemon. Make the following changes:
 	- Make sure that only errors with a `debug` severity and higher are collected to that error logs. https://www.loggly.com/ultimate-guide/access-and-error-logs/ httpd is configured as needed?
 		- vi /etc/httpd/conf/httpd.conf
-			- Change ErrorLog "logs/error_log" to ErrorLog "logs/httpd_errors.log" and LogLevel warn to debug
-			- systemctl restart httpd
+			- ErrorLog "logs/error_log" [ErrorLog "logs/httpd_errors.log"] and 
+			- LogLevel warn to debug
+		- systemctl restart httpd
+- 20. Set ACLs    
+	- for user bob on /var/www directory:
+		- getfact /var/www
+		- setfacl -m u:bob:rwx /var/www/
+	- Remove all ACL permissions from /mnt:
+		- setfacl -b /mnt/
 - 21. Prepare the disk at `/dev/vde` for encryption:
-	- Open the encrypted device and map it to the virtual unencrypted device called `examdrive` https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/apcs04s04
-- 
+	- Open the encrypted device and map it to the virtual unencrypted device called `examdrive` **A.** Format it with `LUKS`. Choose the password `ExamPassed` **B.** Open the encrypted device and map it to the virtual unencrypted device called `examdrive`   **C.** Create an `xfs` filesystem on this unencrypted mapped device, `examdrive` 
+		- cryptsetup luksFormat /dev/vde
+			- yes + enter
+			-  passphrase/password & verify it [ExamPassed]
+		- command to map it to the virtual unencrypted device called examdrive:
+			- cryptsetup open /dev/vde examdrive
+				- verify with passphrase/password [ExamPassed]
+		- create an xfs filesystem on this unencrypted mapped device, examdrive:
+			- mkfs.xfs /dev/mapper/examdrive
+- 23. Change the disk quota for the group called `nginx`. Limit the inodes that this group can create. Set a `soft` limit of `3500` inodes and a hard limit of `4000` inodes on `/mnt` partition.
+	- edquota -g nginx
+	- For /dev/vdb1 under inodes set values
+		- Filesystem                   blocks       soft       hard     inodes     soft     hard
+		-  /dev/vdb1                     0            0          0          0      3500     4000
+- 24. 
+	- **C.** Perform the same search as above, but this time, redirect `BOTH error messages and standard messages (stdout,stderr)` to the same file: `/home/bob/all.out` Basically, what you would see in your terminal if you would use the `find` command normally (without any redirects) is the exact content you should have in `/home/bob/all.out`, with results, errors and standard output, appearing in the same order.
+		- stdout >
+		- stderr 2>
+		- stdout & err &>
