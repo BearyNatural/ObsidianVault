@@ -1,5 +1,5 @@
 Q's that I have troubles with to research later:
-
+- unknown for previous attempts; 77%; 
 - find how many hard links this file has
 	- ls -li [no this shows the Inode]
 	- stat file[yes shows everything including the hard links number]
@@ -30,6 +30,7 @@ Q's that I have troubles with to research later:
 	- vi /etc/resolv.conf
 - Add a `static host` so that the host called `database` resolves to this IP address: `10.0.0.12`
 	- vi /etc/hosts
+		- 10.0.0.12 database
 - Find out the IP address of `eth1` interface on `node01` and add a `temporary static route` so that network traffic going to `192.168.5.0/24` is routed via the IP address you find.
 	- ip route
 	- ip route add 192.168.5.0/24 via 172.28.128.1[eth1IP]
@@ -45,5 +46,4 @@ Q's that I have troubles with to research later:
 	- partprobe [after creating the partitions]
 	- mkswap /dev/vdb1 [copy the uuid]
 	- swapon /dev/vdb1
-	- vi /etc/fstab [uuid swap swap defaults 0 0]
 	- vi /etc/fstab [/dev/vdb1 none swap defaults 0 0]

@@ -1,4 +1,4 @@
-- 47%;  72%
+- 47%;  72% 63%;
 - Find and `delete` all the files which have the following octal permissions: 666
 	- find /opt/assets/ -type f -perm 666 [did not work also ugo=rw]
 	- https://unix.stackexchange.com/questions/31770/find-files-which-have-a-higher-permission-than-xxx

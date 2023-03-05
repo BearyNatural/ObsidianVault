@@ -1,4 +1,4 @@
-- 46% [for 14 out of 24=78%;] 75%
+- 75%; 83%; 85%;
 - 2. https://stackoverflow.com/questions/32922557/find-files-modified-over-1-hour-ago-but-less-than-3-days
 	- Create a `soft link` in `/opt/` directory. The link should be `/opt/bobscollection` and it should point to `/home/bob/collection/` directory
 		- ln -s currentfiledirectory createdsoftlinkfiledirectory
@@ -88,7 +88,7 @@
 	- Make sure that only errors with a `debug` severity and higher are collected to that error logs. https://www.loggly.com/ultimate-guide/access-and-error-logs/ httpd is configured as needed?
 		- vi /etc/httpd/conf/httpd.conf
 			- ErrorLog "logs/error_log" [ErrorLog "logs/httpd_errors.log"] and 
-			- LogLevel warn to debug
+			- LogLevel warn [debug]
 		- systemctl restart httpd
 - 20. Set ACLs    
 	- for user bob on /var/www directory:
@@ -106,6 +106,8 @@
 				- verify with passphrase/password [ExamPassed]
 		- create an xfs filesystem on this unencrypted mapped device, examdrive:
 			- mkfs.xfs /dev/mapper/examdrive
+- 22. create a raid
+	- mdadm --create /dev/md0 --level=mirror --raid-devices=2 /dev/sdb1 /dev/sdc1
 - 23. Change the disk quota for the group called `nginx`. Limit the inodes that this group can create. Set a `soft` limit of `3500` inodes and a hard limit of `4000` inodes on `/mnt` partition.
 	- edquota -g nginx
 	- For /dev/vdb1 under inodes set values

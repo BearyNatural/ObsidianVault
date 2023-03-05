@@ -68,7 +68,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -126,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 3.md",
+                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 4.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,13 +153,14 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "7de945b847f933a4",
+  "active": "9f18c76b8a8d9ab7",
   "lastOpenFiles": [
-    "Linux/My practice steps/Mock Exams/My answers.md",
     "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 3.md",
-    "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 1.md",
     "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 4.md",
     "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac exam 2.md",
+    "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 1.md",
+    "Linux/My practice steps/Mock Exams/My answers.md",
+    "KodeKloud/C-20230305 -  Linux GPG Encryption.md",
     "KodeKloud/C-20230303 -  Linux Bash Scripts.md",
     "KodeKloud/C-20230302 -  Linux Configure sudo.md",
     "Career/CSA interview prep q's/Networking qs.md",
@@ -186,7 +187,6 @@
     "M23.png",
     "Linux/LFCS - Sander van Vugt/Lesson 38 - Configuring a Proxy.md",
     "M22.png",
-    "Linux/LFCS - Sander van Vugt/Lesson 37 - Configuring Email.md",
     "M21.png",
     "M20 2.png",
     "Linux/Untitled",
