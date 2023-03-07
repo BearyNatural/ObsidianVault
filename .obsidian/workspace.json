@@ -4,71 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "a1b8066283dd3421",
+        "id": "2412d430deaf5ba1",
         "type": "tabs",
         "children": [
           {
-            "id": "de81d79e180d302e",
+            "id": "e9c78ff3b4249bb9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/My practice steps/Mock Exams/My answers.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "dd3cdebd950f373e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 1.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "70fa5db6d370f027",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac exam 2.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7de945b847f933a4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 3.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9f18c76b8a8d9ab7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 4.md",
+                "file": "Swinburne Assessment/Data Engineering/UniWebsiteTestProject.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -126,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 4.md",
+                "file": "Swinburne Assessment/Data Engineering/UniWebsiteTestProject.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -153,19 +104,29 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "9f18c76b8a8d9ab7",
+  "active": "e9c78ff3b4249bb9",
   "lastOpenFiles": [
-    "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 3.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 31 - Configuring SSH.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 19 - Managing Networking.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 18 Managing Local Security.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 17 - Writing Shell Scripts.md",
+    "Linux/LFCS - Sander van Vugt/Lesson 16 - Working with Logging.md",
+    "KodeKloud/C-20230124 - Linux Remote Copy.md",
+    "Swinburne Assessment/Data Engineering/UniWebsiteTestProject.md",
+    "Swinburne Assessment/Data Engineering",
     "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 4.md",
+    "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 3.md",
     "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac exam 2.md",
     "Linux/My practice steps/Mock Exams/KodeKloud LFCS Prac Exam 1.md",
     "Linux/My practice steps/Mock Exams/My answers.md",
+    "KodeKloud/C-20230306 -  Web Server Security.md",
+    "Linux/My practice steps/Mock Exams/Tests practice.md",
+    "Linux/My practice steps/setup.sh.md",
     "KodeKloud/C-20230305 -  Linux GPG Encryption.md",
     "KodeKloud/C-20230303 -  Linux Bash Scripts.md",
     "KodeKloud/C-20230302 -  Linux Configure sudo.md",
     "Career/CSA interview prep q's/Networking qs.md",
     "Career/CSA interview prep q's/OS Linux.md",
-    "Linux/My practice steps/Mock Exams/Tests practice.md",
     "Linux/My practice steps/Mock Exams",
     "Linux/LFCS - Sander van Vugt/Lesson 9 - Managing Storage.md",
     "Linux/LFCS - Sander van Vugt/Lesson 4 - Working with Text Files.md",
@@ -173,19 +134,10 @@
     "Linux/LFCS - Sander van Vugt/Lesson 8 - Managing Permissions.md",
     "Linux/LFCS - Sander van Vugt/Lesson 7 - Managing Users and Groups.md",
     "Linux/LFCS - Sander van Vugt/Lesson 6 - Working with the Bash Shell.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 5 - Connecting to a Server.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 2 - Using Essential Tools.md",
-    "KodeKloud/F-20230227 - Apache Redirects.md",
-    "Linux/VSCode CLI.md",
-    "Linux/aCloudGuru/Learn Linux by Doing.md",
-    "KodeKloud/F-20230220 - Apache Redirects.md",
     "Pasted image 20230227230052.png",
     "Pasted image 20230227225859.png",
-    "Linux/LFCS - Sander van Vugt/Lesson 39 - Managing KVM Virtual Machines.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 40 - Managing Linux Containers.md",
     "M24.png",
     "M23.png",
-    "Linux/LFCS - Sander van Vugt/Lesson 38 - Configuring a Proxy.md",
     "M22.png",
     "M21.png",
     "M20 2.png",

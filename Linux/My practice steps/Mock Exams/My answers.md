@@ -565,7 +565,7 @@
 			2. mount /devdriveletters /mnt/backup
 			3. blkid
 			4. vi /etc/fstab [uuid=blkiduuid /dev/driveletters /mnt/back ext4 defaults 0 0]
-	11. Setting up redundencies amoung disks is often an important taks that system administrators must complete.  Create a RAID 1 device named md0 using 2 disk devices of 1GB each and complete the following:  NOTE: You will have to add additional disks to do this on your VM. The names may differ than what is shown from my lsblk command
+	11. Setting up redundencies amoung disks is often an important taks that system administrators must complete.  Create a RAID 1 device named md0 using 2 disk devices of 1GB each and complete the following:  NOTE: You will have to add additional disks to do this on your VM. The names may differ than what is shown from my lsblk command https://bobcares.com/blog/removal-of-mdadm-raid-devices/
 		1. Put a ext4 file system on it with the label of ‘md0’
 		2. Add a spare disk of 1GB
 		3. Mount to /raid

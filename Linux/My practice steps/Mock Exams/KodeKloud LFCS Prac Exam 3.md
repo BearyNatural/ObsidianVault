@@ -1,4 +1,4 @@
-- 75%; 83%; 85%;
+- 75%; 83%; 85%; 92%;
 - 2. https://stackoverflow.com/questions/32922557/find-files-modified-over-1-hour-ago-but-less-than-3-days
 	- Create a `soft link` in `/opt/` directory. The link should be `/opt/bobscollection` and it should point to `/home/bob/collection/` directory
 		- ln -s currentfiledirectory createdsoftlinkfiledirectory

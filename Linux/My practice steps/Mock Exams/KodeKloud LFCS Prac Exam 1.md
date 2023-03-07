@@ -1,5 +1,5 @@
 Q's that I have troubles with to research later:
-- unknown for previous attempts; 77%; 
+- unknown for previous attempts; 77%; 83%;
 - find how many hard links this file has
 	- ls -li [no this shows the Inode]
 	- stat file[yes shows everything including the hard links number]
@@ -21,7 +21,7 @@ Q's that I have troubles with to research later:
 - Print out the `network routing table` and save the entire output to `/opt/routes.txt` file. Also make sure to preserve any existing content of this file.
 	- ip route
 - First, in your home directory you will find a file called `bobandjane`. Currently this file can only be read by `bob`. Add a new `ACL` permission so that `jane` can also `read` this. Jane should not have `write` or `execute` permissions, but only the `read` permission.
-	- setfacl --modify user:jan:r bobandjane
+	- setfacl --modify user:jane:r bobandjane
 - docker list all containers then remove all docker container images except for nginx
 	- docker container list -a
 	- docker images

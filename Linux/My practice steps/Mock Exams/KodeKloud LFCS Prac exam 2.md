@@ -1,8 +1,8 @@
-- 47%;  72% 63%;
+- 47%;  72%; 63%; 72%
 - Find and `delete` all the files which have the following octal permissions: 666
 	- find /opt/assets/ -type f -perm 666 [did not work also ugo=rw]
 	- https://unix.stackexchange.com/questions/31770/find-files-which-have-a-higher-permission-than-xxx
-- bash script which: incorrect need to verify the script ???
+- bash script which:
 	- `lists` all the files present inside `/opt/` directory, pipes this output to the `sha256sum` command and then saves the output of the `sha256sum` command in `/home/bob/binhash.txt` file.  Use the regular command to list the directory contents without any options like `long listing format, hidden files` etc. Make sure to give it executable permissions.
 		- echo 'ls | sha256sum > /home/bob/binhash.txt' > /home/bob/script.sh
 - cut all data before/after
