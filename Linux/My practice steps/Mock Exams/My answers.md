@@ -515,7 +515,7 @@
 					1. blkid
 					2. UUID=5abcf53d-1de6-4ce5-9095-79574eaed6f2 /mnt  ext3  defaults 0 2
 				9. https://www.thegeekstuff.com/2010/08/how-to-create-lvm/
-				10. [ ] https://www.linuxbabe.com/desktop-linux/how-to-automount-file-systems-on-linux
+				10.  https://www.linuxbabe.com/desktop-linux/how-to-automount-file-systems-on-linux
 	8. Automating routine system tasks using bash scripts can help system administrators complete routine tasks.  Write and run bash script to complete the following system exercises:
 		1. Create 2 files in a new directory called ‘manuals’ located in your home directory
 			1. Name the first file ‘sed-info’ and redirect the output of the ‘sed’ command man page to the contents of the file
