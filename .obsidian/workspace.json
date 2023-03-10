@@ -11,8 +11,24 @@
             "id": "cf7a9ade18be2533",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Swinburne Assessment/SAA/Assessment 1.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a51b98fa2bc0ebb8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Swinburne Assessment/SAA/Assessment 2.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -57,7 +73,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 283.5
+    "width": 283.5,
+    "collapsed": true
   },
   "right": {
     "id": "cb514284c4f744db",
@@ -73,6 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Swinburne Assessment/SAA/Assessment 1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -101,6 +119,8 @@
   },
   "active": "cf7a9ade18be2533",
   "lastOpenFiles": [
+    "Swinburne Assessment/SAA/Assessment 2.md",
+    "Swinburne Assessment/SAA/Assessment 1.md",
     "Linux/My practice steps/Mock Exams/My answers.md",
     "KodeKloud/C-20230310 -  Install and Configure Tomcat Server.md",
     "Linux/My practice steps/Grad NHT.md",
@@ -128,8 +148,6 @@
     "Career/CSA interview prep q's/OS Linux.md",
     "Linux/My practice steps/Mock Exams",
     "Linux/LFCS - Sander van Vugt/Lesson 9 - Managing Storage.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 4 - Working with Text Files.md",
-    "Linux/LFCS - Sander van Vugt/Lesson 3 - Using Essential File Management Tools.md",
     "Pasted image 20230227230052.png",
     "Pasted image 20230227225859.png",
     "M24.png",
