@@ -41,7 +41,7 @@ o   Must have its resources protected against deletion or modification.
 
 o   Must not run on a server (i.e. serverless) as the company wants to reduce their operating costs.
 [
-Amazon Simple Storage Service (S3) would satisfy the requirements for Website #1 - public website, as it is an object storage built to store and retrieve any amount of data from anywhere, which is perfect for a static website.  It is a simple storage service that offers industry leading durability, availablility, preformance, security and virtually unlimited scalability at very low costs.  It is also a serverless application that is a regional service, therefore if an availability zone were to go down, it would be unaffected.  S3 has features such as object versioning and object lock, which prevents an object version from being deleted or overwritten for a fixed amount of time or indefinitely, depending on your retention policies. https://aws.amazon.com/s3/]
+Amazon Simple Storage Service (S3) would satisfy the requirements for Public web server, as it is an object storage, built to store and retrieve any amount of data from anywhere, which is perfect for a static website.  It is a simple storage service that offers industry leading durability, availablility, preformance, security and virtually unlimited scalability at very low costs.  It is also a serverless application that is a regional service, therefore if an availability zone were to go down, it would be unaffected.  S3 has features such as object versioning and object lock, which prevents an object version from being deleted or overwritten for a fixed amount of time or indefinitely, depending on your retention policies. Utilisation of limited bucket policies will ensure security of your objects unauthorised. https://aws.amazon.com/s3/]
 
 ·       The **Windows application server**
 
@@ -60,7 +60,7 @@ o   Should cost as little as possible
 [ site to site vpn; workspaces; ec2 windows terminal; smtp secured port, block port 25; Port 587 Port 587: The standard secure SMTP port Modern email servers use port 587 for the secure submission of email for delivery. For example, if you use an email client software like Outlook or Apple Mail, it most likely is configured to use this port to send your messages. hybrid setup;
 
 [
-Amazon Elastic Compute Cloud (EC2) using Remote Desktop Protocol (RDP) would satisfy the requirements for Request #2 - Windows application server, as it can run on Windows with Microsoft products and services applications.  A RDP license will be required however if more than 2 staff member will be accessing the service at one time.  Utilisation of NACLs on the subnets will prevent emails being sent externally i.e. internal email will still be allowed.  https://aws.amazon.com/ec2/]
+Amazon Elastic Compute Cloud (EC2) using Remote Desktop Protocol (RDP) would satisfy the requirements for a Windows application server, as it can run on Windows with Microsoft products and services applications.  A RDP license will be required however if more than 2 staff members will be accessing the service at one time.  Utilisation of NACLs on the subnets will prevent emails being sent externally i.e. internal email will still be allowed.  Security Groups will ensure the server is only accessible from the office.  However the server will have access to the internet for updates, downloads etc.  EC2 can be reasonably cheap depending on the size that is required and further savings are available if on a savings plan and/or scheduled reserved instances.  https://aws.amazon.com/ec2/]
 
 Other notes:
 
@@ -68,6 +68,7 @@ Other notes:
 
 ·       For the web servers, only HTTP traffic is required.
 
+ASG & ELB scaling using sticky sessions (asg distribution method to spread across the AZs; EFS for all the user storage, set up across multiple azs;)
   
 
 Complete the following questions about your design:
