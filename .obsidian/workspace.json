@@ -73,8 +73,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 283.5,
-    "collapsed": true
+    "width": 283.5
   },
   "right": {
     "id": "cb514284c4f744db",
@@ -119,8 +118,9 @@
   },
   "active": "cf7a9ade18be2533",
   "lastOpenFiles": [
-    "Swinburne Assessment/SAA/Assessment 2.md",
+    "KodeKloud/C-20230313 -  PAM Authentication For Apache.md",
     "Swinburne Assessment/SAA/Assessment 1.md",
+    "Swinburne Assessment/SAA/Assessment 2.md",
     "Linux/My practice steps/Mock Exams/My answers.md",
     "KodeKloud/C-20230310 -  Install and Configure Tomcat Server.md",
     "Linux/My practice steps/Grad NHT.md",
@@ -147,7 +147,6 @@
     "Career/CSA interview prep q's/Networking qs.md",
     "Career/CSA interview prep q's/OS Linux.md",
     "Linux/My practice steps/Mock Exams",
-    "Linux/LFCS - Sander van Vugt/Lesson 9 - Managing Storage.md",
     "Pasted image 20230227230052.png",
     "Pasted image 20230227225859.png",
     "M24.png",
